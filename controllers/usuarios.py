@@ -27,7 +27,7 @@ def cadastro_usuario():
 
 
     if senha == csenha:
-      usuario = Usuario(nome,  email, hashed_senha)
+      usuario = Usuario(nome,  email, hashed_senha, 0)
       db.session.add(usuario)
       db.session.commit()
       return redirect(url_for('index'))

@@ -37,7 +37,11 @@ def index():
   
 @app.route('/perfil')
 def perfil():
-    return render_template('perfil.html')
+
+    if current_user.is_authenticated:
+        return render_template('perfil.html')
+    else:
+        return redirect('/usuario/login')
 
 @app.route('/pesquisa')
 def pesquisa():
