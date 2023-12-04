@@ -1,0 +1,67 @@
+
+/* estilização dos textos*/
+.underline{
+  text-decoration: underline;
+}
+
+.subtitulo{
+  font-family: Poppins;
+  font-size: 36px;
+  color: var(--Color-Darkblue);
+}
+
+.texto{
+  font-family: Lato;
+  font-size: 20px;
+  color: var(--Color-Darkblue);
+}
+
+.subtitulo2{
+  color: var(--Color-Darkblue);
+  font-family: Lato;
+  font-size: 28px;
+}
+
+/* Distâncias*/
+.margem-grande{
+  margin-top: 190px;
+}
+
+.margem-media{
+  margin-top: 100px;
+}
+
+.margem-pequena{
+  margin-top: 20px;
+}
+
+/*----------------*/
+
+.button-sem-estyle{
+  border: none;
+  background-color: transparent;
+  margin-right: 50px;
+}
+
+.tamanho-conteiner{
+  width: 1224px;
+}
+
+.border{
+  height: 5px;
+  background-color: var(--Color-Darkblue);
+}
+
+.borda-fina{
+  border-top: 2px solid var(--Color-Darkblue);
+}
+
+.input{
+  width: 810px;
+  height: 77px;
+  border-radius: 30px;
+  border: 1px solid var(--Color-Darkblue);
+  padding: 10px 10px 10px 10px;
+  width: 719.496px;
+  height: 52px;
+}

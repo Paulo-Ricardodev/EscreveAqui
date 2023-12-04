@@ -1,0 +1,34 @@
+{% extends 'base_editar.html' %}
+
+{% block conteudo %}
+
+<link rel="stylesheet" href="{{url_for('static', filename = 'style/base_editar.css')}}">
+
+<div class="d-flex justify-content-center fw-semibold margem">
+  <div class="subtitulo margem-grande">Editar conta</div>
+</div>
+
+
+<div class="d-flex justify-content-center fw-semibold margem">
+  <div>
+
+    <form method="post" enctype="multipart/form-data">
+
+      <div class="subtitulo2 margem-grande">Nome</div> <br>
+       <div><input type="text" name="nome" class="caixa-texto texto" placeholder="Ex.: Maria da Silva"></div>
+
+      <div class="subtitulo2 margem-media">Email</div> <br>
+       <div><input type="text" name="email" class="caixa-texto texto" placeholder="Ex.: maria@email.com"></div>
+
+      <div class="margem-grande d-flex justify-content-center">
+        <button type="submit" class="btn botao">Voltar</button>
+        <button type="submit" class="btn botao">Atualizar</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+
+{% endblock %}

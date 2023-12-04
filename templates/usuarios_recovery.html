@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+  <ul>
+    {%for u in usuarios %}
+      <li>
+        {{u.nome}} -  
+        <a href="/usuario/update/{{u.id}}">Editar</a>
+        <a href="/usuario/delete/{{u.id}}">Deletar</a>
+            
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

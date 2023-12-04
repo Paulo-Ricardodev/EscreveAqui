@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+  <ul>
+    {%for t in tema %}
+      <li>
+        {{t.titulo}} -  
+        <a href="/tema/update/{{t.id}}">Editar</a>
+        <a href="/tema/delete/{{t.id}}">Deletar</a>
+            
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

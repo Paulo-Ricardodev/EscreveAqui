@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+  <h1>Tem certeza que deseja deletar o tema {{tema.titulo}}?</h1>
+  <form method ='post' action="/tema/delete/{{tema.id}}">
+
+    <button type='submit'> Excluir </button>
+  </form>
+  <a href="/tema/recovery">Cancelar</a>
+
+{% endblock %}

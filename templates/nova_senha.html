@@ -1,0 +1,42 @@
+{% extends 'base_editar.html' %}
+
+{% block conteudo %}
+
+<link rel="stylesheet" href="{{url_for('static', filename = 'style/base_editar.css')}}">
+
+<div class="d-flex justify-content-center fw-semibold margem">
+  <div class="subtitulo margem-grande">Nova senha</div>
+</div>
+
+
+<div class="d-flex justify-content-center fw-semibold margem">
+
+
+    <form method="post" enctype="multipart/form-data">
+
+      <div class="d-flex justify-content-center margem-grande">
+        <div>
+          <div class="subtitulo2">Nova senha</div> <br>
+         <div><input type="text" name="senha" class="input-senha texto"></div>
+          <div class="texto fw-light box">Sua senha deve ter 8 digitos e conter letras em maísculo.</div>
+        </div>
+
+        <div class="margem-lado">
+          <div class="subtitulo2">Cofirme sua senha</div> <br>
+         <div><input type="text" name="confirmar" class="input-senha texto"></div>
+        </div>
+
+    </div>
+
+      <div class="margem-grande d-flex justify-content-center">
+        <button type="submit" class="btn botao">Voltar</button>
+        <button type="submit" class="btn botao">Atualizar</button>
+      </div>
+
+    </form>
+
+
+</div>
+
+
+{% endblock %}

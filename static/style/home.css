@@ -1,0 +1,129 @@
+.titulo{
+  font-family: Poppins;
+  font-size: 48px;
+  width: 488px;
+}
+
+.subtitulo{
+  font-family: Poppins;
+  font-size: 36px;
+}
+
+.darkblue{
+  color: var(--Color-Darkblue);
+}
+
+.background-azul{
+  background-color: var(--Color-Darkblue);
+}
+
+.bg-inicio{
+  height: 800px;
+}
+
+.margem{ 
+  margin-top: 190px;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+.linha{
+  width: 1467px;
+  height: 3px;
+}
+
+.bolinha{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;  
+}
+
+.position-top{
+  position: relative;
+  top: 6px;
+}
+
+.position-bottom{
+  position: relative;
+  bottom: 8px;
+}
+
+.posicao{
+  position: relative;
+  bottom: 172px;
+}
+
+.texto-inicio{
+  width: 328px;
+  text-align: center;
+  font-family: Lato;
+  font-size: 20px;
+}
+
+.postagem{
+  width: 1016px;
+  height: 544px;
+  background-color: var(--Color-blue);
+  border-radius: 55.571px;
+}
+
+.margem2{
+  margin-top: 40px;
+}
+
+.tema{
+  font-family: Lato;
+  font-size: 28px;
+}
+
+.button{
+  border-color: var(--Color-Darkblue);
+}
+
+.button2{
+  color: var(--Color-Bege);
+  border-color: var(--Color-Darkblue);
+}
+
+.bloco-azul{
+  border-radius: 50px;
+  width: 455px;
+  height: 267px;
+}
+
+.texto{
+  width: 437px;
+  height: 183px;
+}
+
+.texto-longo{
+  text-align: justify;
+  font-family: Lato;
+  font-size: 20px;
+}
+
+.right{
+  margin-right: 50px;
+}
+
+.left{
+  margin-left: 50px;
+}
+
+.comentar{
+  width: 591.431px;
+  height: 42.926px;
+  background-color:var(--Color-blue);
+  border-radius: 38.262px;
+  border: 1px solid var(--Color-Darkblue);
+  padding-left: 20px;
+}
+
+.pessoa{
+  width: 299.242px;
+  height: 475px;
+  border-radius: 157.576px;
+  background-color: var(--Color-blue);
+}

@@ -1,0 +1,156 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Lato;
+  --Color-Darkblue: #1A3E68;
+  --Color-Bege: #F1DAC4;
+  --Color-Lightblue: #B0D6EC;
+  --Color-blue: #7DA0CA;
+  --Color-Branco: #fff;
+  background-color: var(--Color-Darkblue);
+}
+
+li{
+  list-style: none;
+  margin-left: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--Color-Branco);
+  font-size: 20px;
+}
+
+.conteiner{
+  background-color: var(--Color-Darkblue)
+}
+
+.footer{
+  width: 100%; 
+  height: 417px; 
+  background: var(--Color-Darkblue);
+  border-top: 2px solid #0C2543;
+}
+
+.bloco{
+  width:100%;
+  height:260px;
+  border-bottom: 1px solid var(--Color-Bege);
+}
+
+.final{
+  position: relative;
+  top: 100px;
+  color: var(--Color-Branco)
+}
+
+.bloco2{
+  width:200px;
+  color: var(--Color-Bege);
+  font-size:20px;
+  font-weight: 300;
+}
+
+.margem-grande{
+  margin-top: 190px;
+}
+
+.margem-media{
+  margin-top: 100px;
+}
+
+ /*tamanho dos textos*/
+
+.subtitulo2{
+  color: var(--Color-Bege);
+  font-family: Lato;
+  font-size: 28px;
+}  
+
+.subtitulo{
+  font-family: Poppins;
+  font-size: 36px;
+  color: var(--Color-Bege);
+}
+
+.texto{
+  font-family: Lato;
+  font-size: 20px;
+  color: var(--Color-Bege);
+}
+
+.caixa-texto{
+  width: 810px;
+  height: 77px;
+  border-radius: 30px;
+  border: 2px solid var(--Color-Bege);
+  color: var(--Color-Bege);
+  padding: 20px 20px 20px 20px;
+  background-color: var(--Color-Darkblue);
+}
+
+.botao{
+  color: var(--Color-Darkblue);
+  background-color: var(--Color-Bege);
+  margin-left: 20px;
+  width: 88px;
+  height:48px;
+}
+
+.botao:hover{
+  background-color: var(--Color-Darkblue);
+  color: var(--Color-Bege);
+  border-color: var(--Color-Bege);
+  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-out;
+}
+
+.margem-lado{
+  margin-left: 100px;
+}
+
+.admin{
+  width: 260px;
+  height: 60px;
+  color: var(--Color-Bege);
+  border: 1px solid var(--Color-Bege);
+  border-radius: 30px;
+  padding-left: 10px;
+  font-family: Lato;
+  font-size: 20px;
+  background-color: var(--Color-Darkblue);
+}
+
+.option_select{
+  width: 260px;
+  height: 60px;
+  color: var(--Color-Darkblue);
+  background: var(--Color-Bege);
+  border-radius: 30px;
+  padding-left: 10px;
+  font-family: Lato;
+  font-size: 20px;
+}
+
+.input-senha{
+  width: 365px;
+  height: 77px;
+  border-radius: 30px;
+  border: 2px solid var(--Color-Bege);
+  color: var(--Color-Bege);
+  padding: 20px 20px 20px 20px;
+  background-color: var(--Color-Darkblue);
+}
+
+.box{
+  width: 365px;
+}

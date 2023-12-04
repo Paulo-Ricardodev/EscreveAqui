@@ -1,0 +1,32 @@
+
+{% extends 'base_add.html' %}
+
+{% block conteudo %}
+
+<link rel="stylesheet" href="{{url_for('static', filename = 'style/add_conteudo.css')}}">
+
+<div class="d-flex justify-content-center fw-semibold margem">
+  <div class="subtitulo underline ">Adicionar tema</div>
+</div>
+
+<div class="d-flex justify-content-center fw-semibold margem">
+  <div>
+    <form  method = 'post' action="/tema/cadastro">
+      
+       <div class="subtitulo2">Título do tema</div> <br>
+       <div><input type="text" name="titulo_tema" class="input texto" placeholder="Ex.: Violência doméstica" required></div>
+      
+       <div class="subtitulo2 margem2">Descrição</div> <br>
+      <textarea name="descricao" class="input texto descricao" placeholder="Descreva um pouco sobre esse tema" id="" cols="30" rows="10" required></textarea>
+
+      <div class="margem d-flex justify-content-center">
+       <a href="{{url_for('index')}}"> <button type="submit" class="btn botao">Voltar</button> </a>
+        <button type="submit" class="btn botao">Postar</button>
+      </div>
+      
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

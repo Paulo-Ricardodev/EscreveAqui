@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+  <form  method = 'post' action="/colecao/update/{{colecao.id}}">
+    <input type="text" placeholder = 'titulo' value = '{{colecao.nome}}' name = 'nome' >
+    <input type="text" placeholder = 'descrição' value = '{{colecao.descricao}}' name = 'descricao' >
+    <input type="text" placeholder = 'tipo' value = '{{colecao.tipo}}' name = 'tipo' >
+    <button type = 'submit'> atualizar colecao </button>
+  </form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+  <h1>Tem certeza que deseja deletar a colecao {{colecao.nome}}?</h1>
+  <form method ='post' action="/colecao/delete/{{colecao.id}}">
+
+    <button type='submit'> Excluir </button>
+  </form>
+  <a href="/colecao/recovery">Cancelar</a>
+
+{% endblock %}

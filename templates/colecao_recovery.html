@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+  <ul>
+    {% for c in colecao %}
+      <li> {{c.nome}} - {{c.descricao}}. 
+        <a href="/colecao/update/{{c.id}}"> Editar </a>
+        <a href="/colecao/delete/{{c.id}}"> Deletar </a>
+      
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

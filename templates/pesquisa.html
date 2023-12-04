@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/pesquisa.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="search-box d-flex">
+        <a class="search-btn" href="#"><img src="{{url_for('static', filename = 'imgs/pesquisa.svg')}}" alt=""></a>
+        <input type="search" class="search-txt" placeholder="Pesquise o tema"/>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center flex-column">
+      <div class="result fw-bold">
+        <div>Resultados...</div>
+      </div>
+
+      <div class="tema-box d-flex justify-content-between align-items-center">
+        <div class="tema d-flex ">
+          <div>Tema: Pobreza no Brasil.</div>
+        </div>
+        <div class="botao-box d-flex justify-content-around align-items-center">
+          <div><a class="botao" href="#">Abrir</a></div>
+          <div><a class="botao" href="#">Adicionar repertório</a></div>
+        </div>
+      </div>
+
+      <div class="tema-box d-flex justify-content-between align-items-center">
+        <div class="tema d-flex ">
+          <div>Tema: Pobreza no Brasil.</div>
+        </div>
+        <div class="botao-box d-flex justify-content-around align-items-center">
+          <div><a class="botao" href="#">Abrir</a></div>
+          <div><a class="botao" href="#">Adicionar repertório</a></div>
+        </div>
+      </div>
+
+      <div class="tema-box d-flex justify-content-between align-items-center">
+        <div class="tema d-flex ">
+          <div>Tema: Pobreza no Brasil.</div>
+        </div>
+        <div class="botao-box d-flex justify-content-around align-items-center">
+          <div><a class="botao" href="#">Abrir</a></div>
+          <div><a class="botao" href="#">Adicionar repertório</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+{% endblock %}

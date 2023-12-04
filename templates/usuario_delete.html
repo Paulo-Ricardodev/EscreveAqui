@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+  <h1>Tem certeza que deseja deletar o usuário {{usuario.nome}}?</h1>
+  <form method ='post' action="/usuario/delete/{{usuario.id}}">
+
+    <button type='submit'> Excluir </button>
+  </form>
+  <a href="/usuario/recovery">Cancelar</a>
+
+{% endblock %}

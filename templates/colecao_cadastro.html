@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+  <form  method='post' action = '/colecao/criar' >
+    <input type="number" placeholder='usuario id' name = 'usuario_id'>
+    <input type="number" placeholder='repertorio id' name = 'repertorio_id'>
+    <input type="text" placeholder='nome' name = 'nome'>
+    <input type="text" placeholder = 'descrição' name = 'descricao'>
+    <input type="text" placeholder='tipo' name = 'tipo'>
+    <button type='submit'> Cadastrar </button>
+  </form>
+{% endblock %}

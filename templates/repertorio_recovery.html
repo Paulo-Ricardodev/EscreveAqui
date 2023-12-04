@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+  <ul>
+    {% for r in repertorio %}
+      <li> {{r.titulo}} - {{r.referencia}}. 
+        <a href="/repertorio/update/{{r.id}}"> Editar </a>
+        <a href="/repertorio/delete/{{r.id}}"> Deletar </a>
+        <a href="/repertorio/abrir/{{r.id}}"> Abrir </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

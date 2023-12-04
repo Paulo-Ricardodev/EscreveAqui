@@ -1,0 +1,120 @@
+html{
+  width: 100%;
+  height: 100%;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: Lato;
+  --Color-Darkblue: #1A3E68;
+  --Color-Bege: #F1DAC4;
+  --Color-Lightblue: #B0D6EC;
+  --Color-blue: #7DA0CA;
+  --Color-Branco: #fff;
+}
+.container-login{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.img-login{
+  width: 330px;
+  height: 300px;
+}
+.bem-vindo{
+  font-family: Poppins;
+  width: 250px;
+  font-weight: 600;
+  color: var(--Color-Darkblue);
+  font-size: 36px;
+  text-align: center;
+}
+.cadastrar{
+  font-size: 20px;
+  font-weight: 300;
+  text-decoration: none;
+  color: var(--Color-Darkblue);
+  margin-bottom: 10px;
+  text-align: center;
+}
+.img-box{
+  width: 50%;
+  height: 100%;
+}
+.content-box{
+  width: 80%;
+  height: 100%;
+  background-color: var(--Color-Darkblue);
+}
+.content-box .form-box{
+  width: 50%;
+}
+.logo{
+  margin-bottom: 30px;
+}
+.content-box .form-box .input-box{
+  margin-bottom: 20px;
+}
+.content-box .form-box .input-box label{
+  font-size: 20px;
+  font-weight: 900;-
+  margin-left: 10px;
+  color: var(--Color-Bege);
+}
+.content-box .form-box .input-box input{
+  width: 100%;
+  padding: 10px;
+  color: var(--Color-Bege);
+  background-color: var(--Color-Darkblue);
+  border-radius: 30px;
+  border-color: var(--Color-Bege);
+}
+.content-box .form-box .input-box input[type=submit]{
+  background: var(--Color-Bege);
+  color: var(--Color-Darkblue);
+  border: none;
+  margin-top: 50px;
+  width: 228px;
+  font-size: 20px;
+  transition: 0.5s;
+  font-weight: 700;
+}
+.content-box .form-box .input-box input[type=submit]:hover{
+  background: var(--Color-Lightblue);
+}
+.container-login .input-box .cadastre-se{
+  background: var(--Color-Darkblue);
+  color: var(--Color-Bege);
+  border: none;
+  width: 228px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: 0.5s;
+  padding: 10px;
+}
+.container-login .input-box .cadastre-se:hover{
+  background: var(--Color-Lightblue);
+  color: var(--Color-Darkblue);
+}
+.content-box .form-box .remember{
+  margin-left: 10px;
+  margin-bottom: 20px;
+  color: var(--Color-Bege);
+  font-size: 18px;
+  font-weight: 300;
+}
+.content-box .form-box .remember a{
+  text-decoration: none;
+  color: var(--Color-Bege);
+}
+.content-box .form-box .remember a:hover{
+  color: var(--Color-Lightblue);
+}
+.voltar{
+  margin-right: 350px;
+  margin-top: 20px;
+}
