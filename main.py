@@ -11,9 +11,9 @@ import os
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = os.environ['MYSQL_PASSWORD']
+app.config['SECRET_KEY'] = 'senha'
 
-conexao = 'mysql+pymysql://psi2023_paulo:bjIOQQQ3rH-9yOJA@albalopes.tech/psi2023_pi_escreveaqui'
+conexao = 'mysql+pymysql://talyta:Pr0jet0EscreveAqui#2217@escreveaqui.mysql.database.azure.com/integrador'
 app.config['SQLALCHEMY_DATABASE_URI'] = conexao
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
