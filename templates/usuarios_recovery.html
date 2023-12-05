@@ -1,4 +1,4 @@
-{% extends 'base_pesquisa.html' %}
+{% extends 'base.html' %}
 
 {% block links %}
   <link rel="stylesheet" href="{{url_for('static', filename = 'style/ger_user.css')}}">
@@ -28,7 +28,7 @@
         
             <tbody>
               <tr>
-                <td>{u.nome}</td>
+                <td> {{u.nome}} </td>
                 
                 {% if u.admin %}
                   <td>SIM</td>
