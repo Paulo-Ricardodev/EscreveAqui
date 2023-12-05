@@ -20,6 +20,7 @@ def cadastro_usuario():
     email = request.form.get('email')
     senha = request.form.get('senha')
     csenha = request.form.get('csenha')
+    admin = request.form.get('admin')
 
     # criptografando a senha com o bcrypt
     hashed_senha = bcrypt.generate_password_hash(senha).decode('utf-8')
@@ -27,7 +28,7 @@ def cadastro_usuario():
 
 
     if senha == csenha:
-      usuario = Usuario(nome,  email, hashed_senha, 0)
+      usuario = Usuario(nome,  email, hashed_senha, eval(admin))
       db.session.add(usuario)
       db.session.commit()
       return redirect(url_for('index'))
@@ -81,9 +82,13 @@ def update(id):
     
     nome = request.form.get('nome')
     email = request.form.get('email')
+    admin = request.form.get('admin')
+    
     
     usuario.nome = nome
     usuario.email = email
+    usuario.admin = eval(admin)
+    
     
     db.session.add(usuario)
     db.session.commit()

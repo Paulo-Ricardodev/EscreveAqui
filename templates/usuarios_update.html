@@ -3,11 +3,14 @@
 
   <form  method='post'  >
     <input type="text" placeholder='nome' name = 'nome' value ='{{usuario.nome}}' >
-    <input type="number" placeholder='idade' name = 'idade' value ='{{usuario.idade}}' >
-    <input type="number" placeholder='tipo' name = 'tipo' value ='{{usuario.tipo}}'>
+    <label for="">Administrador:</label> 
+        <select name="admin">
+          <option value="True" {{ 'selected' if usuario.admin }}> Sim</option>
+          <option value="False" {{ 'selected' if not usuario.admin }}> Não</option>
+        </select>
     <input type="text" placeholder='email' name = 'email' value ='{{usuario.email}}'>
     <input type="password" placeholder='senha' name = 'senha'>
     <input type="password" placeholder='confimar_senha' name = 'csenha'>
-    <button type='submit'> Cadastrar </button>
+    <button type='submit'> atualizar </button>
   </form>
 {% endblock %}
