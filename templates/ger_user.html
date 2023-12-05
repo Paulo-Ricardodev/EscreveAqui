@@ -1,0 +1,53 @@
+{% extends 'base_pesquisa.html' %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/ger_user.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+
+<body>
+  
+  <div class="container flex-column">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="tema fw-semibold">Gerenciar usuários</div>
+    </div>
+
+    <table>
+      
+      <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Admin</th>
+            <th>Editar</th>
+            <th>Remover</th>
+          </tr>
+      </thead>
+      
+      {% for u in usuarios %}
+        
+            <tbody>
+              <tr>
+                <td>{u.nome}</td>
+                
+                {% if u.admin %}
+                  <td>SIM</td>
+                {% else %}
+                  <td>NÃO</td>
+                {% endif %}
+                
+                <td><a href="{{url_for('usuarios.update', id=u.id)}}"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
+                <td><a href="{{url_for('usuarios.delete', id=u.id)}}"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></td>
+              </tr>
+  
+            </tbody>
+        
+      {% endfor %}
+      
+    </table>
+
+  </div>
+
+</body>
+
+{% endblock %}
