@@ -64,8 +64,14 @@ def login():
 @bp_usuarios.route("/recovery")
 @login_required
 def recovery():
-  usuarios = Usuario.query.all()
-  return render_template('usuarios_recovery.html', usuarios = usuarios)
+
+
+  if not current_user.admin:
+    flash("Acesso não permitido")
+    return redirect('/login')
+  else:
+    usuarios = Usuario.query.all()
+    return render_template('usuarios_recovery.html', usuarios = usuarios)
 
 
 @bp_usuarios.route('/update/<int:id>', methods = ['GET', 'POST'])
