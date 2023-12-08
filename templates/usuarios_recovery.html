@@ -36,7 +36,7 @@
                   <td>NÃO</td>
                 {% endif %}
                 
-                <td><a href="{{url_for('usuarios.update', id=u.id)}}"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
+                <td><a href="{{url_for('usuarios.gerenciar', id=u.id)}}"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
                 <td><a href="{{url_for('usuarios.delete', id=u.id)}}"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></td>
               </tr>
   

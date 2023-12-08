@@ -74,32 +74,62 @@ def recovery():
     return render_template('usuarios_recovery.html', usuarios = usuarios)
 
 
+@bp_usuarios.route('/gerenciar/<int:id>', methods = ['GET', 'POST'])
+@login_required
+def gerenciar(id):
+
+  if not current_user.admin:
+    flash("Acesso não permitido")
+    return redirect('/login')
+  else:
+  
+    usuario = Usuario.query.get(id)
+    
+    if request.method == 'GET':
+      
+      return render_template("usuarios_update.html", usuario = usuario)
+      
+    if request.method == 'POST':
+      
+      nome = request.form.get('nome')
+      email = request.form.get('email')
+      admin = request.form.get('admin')
+      
+      
+      usuario.nome = nome
+      usuario.email = email
+      usuario.admin = eval(admin)
+      
+      
+      db.session.add(usuario)
+      db.session.commit()
+      return redirect('/usuario/recovery')
+
 @bp_usuarios.route('/update/<int:id>', methods = ['GET', 'POST'])
 @login_required
 def update(id):
-  
-  usuario = Usuario.query.get(id)
-  
-  if request.method == 'GET':
-    
-    return render_template("usuarios_update.html", usuario = usuario)
-    
-  if request.method == 'POST':
-    
-    nome = request.form.get('nome')
-    email = request.form.get('email')
-    admin = request.form.get('admin')
-    
-    
-    usuario.nome = nome
-    usuario.email = email
-    usuario.admin = eval(admin)
-    
-    
-    db.session.add(usuario)
-    db.session.commit()
-    return redirect('/usuario/recovery')
 
+    usuario = Usuario.query.get(id)
+    
+    if request.method == 'GET':
+      
+      return render_template("editar_perfil.html", usuario = usuario)
+      
+    if request.method == 'POST':
+      
+      nome = request.form.get('nome')
+      email = request.form.get('email')
+      admin = request.form.get('admin')
+      
+      
+      usuario.nome = nome
+      usuario.email = email
+      usuario.admin = eval(admin)
+      
+      
+      db.session.add(usuario)
+      db.session.commit()
+      return redirect('/usuario/update')
 
 @bp_usuarios.route('/delete/<int:id>', methods = ['GET', 'POST'])
 @login_required
