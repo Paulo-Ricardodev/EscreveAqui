@@ -1,5 +1,7 @@
 from utils import db, lm
 from flask_login import  UserMixin
+from datetime import datetime
+
 
 class Usuario(UserMixin, db.Model):
 
@@ -30,6 +32,10 @@ class Repertorio(db.Model):
   titulo = db.Column(db.String(80), nullable=True)
   descricao = db.Column(db.String(200), nullable=True)
   referencia = db.Column(db.String(120), nullable=True, default=False)
+  tipo = db.Column(db.String(80), nullable=True)
+  data = db.Column(db.DateTime, default=datetime.now())
+  avaliacao = db.Column(db.Integer, nullable=True)
+  conteudo = db.Column(db.LargeBinary)
   id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'))
 
   usuario = db.relationship('Usuario', foreign_keys = id_usuario)
