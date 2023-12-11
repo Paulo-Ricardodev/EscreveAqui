@@ -8,14 +8,17 @@ class Usuario(UserMixin, db.Model):
   nome = db.Column(db.String(80), nullable=True)
   email = db.Column(db.String(100), nullable=True)
   senha = db.Column(db.String(100), nullable=True)
+  pontuacao = db.Column(db.Integer, nullable=True)
   admin = db.Column(db.Boolean)
 
-  def __init__(self, nome, email, senha, admin):
+  def __init__(self, nome, email, senha, pontuacao, admin):
     
     self.nome = nome
     self.email = email
     self.senha = senha
+    self.pontuacao = pontuacao
     self.admin = admin
+    
 
   def __repr__(self):
     return 'olá, {}!'.format(self.nome)
