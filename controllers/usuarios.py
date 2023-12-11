@@ -56,11 +56,7 @@ def login():
         else:
           
             return jsonify({"message": "Credenciais inválidas"}), 401
-
-    
-
   
-
 @bp_usuarios.route("/recovery")
 @login_required
 def recovery():
@@ -72,7 +68,6 @@ def recovery():
   else:
     usuarios = Usuario.query.all()
     return render_template('usuarios_recovery.html', usuarios = usuarios)
-
 
 @bp_usuarios.route('/gerenciar/<int:id>', methods = ['GET', 'POST'])
 @login_required
@@ -105,6 +100,8 @@ def gerenciar(id):
       db.session.commit()
       return redirect('/usuario/recovery')
 
+
+
 @bp_usuarios.route('/update/<int:id>', methods = ['GET', 'POST'])
 @login_required
 def update(id):
@@ -130,6 +127,7 @@ def update(id):
       db.session.add(usuario)
       db.session.commit()
       return redirect('/usuario/update')
+
 
 @bp_usuarios.route('/delete/<int:id>', methods = ['GET', 'POST'])
 @login_required
