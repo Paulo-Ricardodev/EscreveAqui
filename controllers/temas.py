@@ -13,7 +13,7 @@ def tema_cadastro():
 
   else:
     
-    titulo = request.form.get('titulo')
+    titulo = request.form.get('titulo_tema')
     descricao = request.form.get('descricao')
 
     # Verifique se o usuário está autenticado
