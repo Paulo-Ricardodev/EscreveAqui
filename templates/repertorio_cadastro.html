@@ -2,7 +2,7 @@
 {% extends 'base_add.html' %}
 {% block conteudo %}
 
-<link rel="stylesheet" href="{{url_for('static', filename = 'style/add_conteudo.css.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'style/add_conteudo.css')}}">
 
 <div class="d-flex justify-content-center fw-semibold margem">
   <div class="subtitulo underline ">Adicionar Repertório</div>
@@ -12,13 +12,13 @@
 
   <div>
 
-    <form method = 'post' action="/repertorio/cadastro">
+    <form method = 'post' action="{{ url_for('repertorios.repertorio_cadastro', id = id) }}">
 
        <div class="subtitulo2">Nome do repertório</div> <br>
        <div><input type="text" name="titulo" class="input texto" placeholder="Ex.: Violência doméstica" required></div>
 
        <div class="subtitulo2 margem2">Repertório</div> <br>
-      <textarea name="repertorio" class="input texto descricao" placeholder="Escreva seu repertório aqui caso seja textual" id="" cols="30" rows="10" required></textarea>
+      <textarea name="conteudo" class="input texto descricao" placeholder="Escreva seu repertório aqui caso seja textual" id="" cols="30" rows="10" required></textarea>
 
       <div class="subtitulo2 margem2">Imagem</div> <br> 
       <input type="file" name="upload">

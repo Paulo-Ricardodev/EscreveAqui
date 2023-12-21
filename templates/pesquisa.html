@@ -19,36 +19,22 @@
       <div class="result fw-bold">
         <div>Resultados...</div>
       </div>
+      {% for t in tema %}
+        <div class="tema-box d-flex justify-content-between align-items-center">
+          <div class="tema d-flex ">
+            <div>Tema: {{t.titulo}}  {{t.id}}</div>
+          </div>
+          <div class="botao-box d-flex justify-content-around align-items-center">
+            <div><a class="botao" href="#">Abrir</a></div>
+            <div><a class="botao" href="{{ url_for('repertorios.repertorio_cadastro', id = t.id) }}">Adicionar repertório</a></div>
 
-      <div class="tema-box d-flex justify-content-between align-items-center">
-        <div class="tema d-flex ">
-          <div>Tema: Pobreza no Brasil.</div>
+          </div>
         </div>
-        <div class="botao-box d-flex justify-content-around align-items-center">
-          <div><a class="botao" href="#">Abrir</a></div>
-          <div><a class="botao" href="#">Adicionar repertório</a></div>
-        </div>
-      </div>
+      {% endfor %}
 
-      <div class="tema-box d-flex justify-content-between align-items-center">
-        <div class="tema d-flex ">
-          <div>Tema: Pobreza no Brasil.</div>
-        </div>
-        <div class="botao-box d-flex justify-content-around align-items-center">
-          <div><a class="botao" href="#">Abrir</a></div>
-          <div><a class="botao" href="#">Adicionar repertório</a></div>
-        </div>
-      </div>
+    
 
-      <div class="tema-box d-flex justify-content-between align-items-center">
-        <div class="tema d-flex ">
-          <div>Tema: Pobreza no Brasil.</div>
-        </div>
-        <div class="botao-box d-flex justify-content-around align-items-center">
-          <div><a class="botao" href="#">Abrir</a></div>
-          <div><a class="botao" href="#">Adicionar repertório</a></div>
-        </div>
-      </div>
+      
 
     </div>
   </div>

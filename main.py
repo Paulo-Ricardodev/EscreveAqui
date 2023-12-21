@@ -43,9 +43,7 @@ def perfil():
     else:
         return redirect('/usuario/login')
 
-@app.route('/pesquisa')
-def pesquisa():
-  return render_template('pesquisa.html')
+
 
 
 @app.errorhandler(401)

@@ -5,6 +5,9 @@ from flask_login import current_user, login_required
 
 bp_temas = Blueprint('temas', __name__ , template_folder='templates')
 
+
+
+
 @bp_temas.route("/cadastro", methods = ['GET', 'POST'])
 def tema_cadastro():
   if request.method == 'GET':
@@ -36,7 +39,10 @@ def tema_recovery():
   tema = Tema.query.all()
   return render_template('tema_recovery.html', tema = tema)
 
-
+@bp_temas.route('/pesquisa', methods = ['GET'])
+def pesquisa():
+  tema = Tema.query.all()
+  return render_template('pesquisa.html', tema = tema)
 
 @bp_temas.route("/update/<int:id>", methods = ['GET', 'POST'])
 def tema_update(id):

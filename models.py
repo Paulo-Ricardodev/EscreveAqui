@@ -3,6 +3,11 @@ from flask_login import  UserMixin
 from datetime import datetime
 
 
+Tem_reper = db.Table('Tema_repertorio',
+                    db.Column('tema_id', db.Integer, db.ForeignKey('tema.id')),
+                    db.Column('repertorio_id', db.Integer, db.ForeignKey('repertorio.id'))
+                    )
+
 class Usuario(UserMixin, db.Model):
 
   __tablename__= "usuario"
@@ -30,20 +35,25 @@ class Repertorio(db.Model):
   __tablename__= "repertorio"
   id = db.Column(db.Integer, primary_key = True)
   titulo = db.Column(db.String(80), nullable=True)
+  conteudo = db.Column(db.String(10000), nullable = True)
   descricao = db.Column(db.String(200), nullable=True)
   referencia = db.Column(db.String(120), nullable=True, default=False)
   tipo = db.Column(db.String(80), nullable=True)
   data = db.Column(db.DateTime, default=datetime.now())
   avaliacao = db.Column(db.Integer, nullable=True)
-  conteudo = db.Column(db.LargeBinary)
   id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'))
 
   usuario = db.relationship('Usuario', foreign_keys = id_usuario)
 
-  def __init__(self, titulo, descricao, referencia):
+  def __init__(self, titulo, conteudo, descricao, referencia, tipo, data, avaliacao ):
     self.titulo = titulo
+    self.conteudo = conteudo
     self.descricao = descricao
     self.referencia = referencia
+    self.tipo = tipo
+    self.data = data
+    self.avaliacao = avaliacao
+
 
   def __repr__(self):
     return '{}'.format(self.titulo)
@@ -56,6 +66,8 @@ class Tema(db.Model):
   id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'))
 
   usuario = db.relationship('Usuario', foreign_keys = id_usuario)
+
+  repertorio = db.relationship('Repertorio', secondary=Tem_reper, backref='temas')
 
   def __init__(self, titulo, descricao):
     self.titulo = titulo
@@ -102,7 +114,7 @@ class Tipo_repertorio(db.Model):
     self.pontuacao = pontuacao
     self.descricao = descricao
 
-class Tema_repertorio(db.Model):
+'''class Tema_repertorio(db.Model):
   __tablename__ = 'tema_repertorio'
   id = db.Column(db.Integer, primary_key = True)
   tema_id = db.Column(db.Integer, db.ForeignKey('tema.id'))
@@ -114,6 +126,7 @@ class Tema_repertorio(db.Model):
   def __init__(self, tema_id, repertorio_id):
     self.tema_id = tema_id
     self.repertorio_id = repertorio_id
+'''
 
 class Comentario(db.Model):
   __tablename__ = 'comentario'

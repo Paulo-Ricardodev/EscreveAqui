@@ -1,22 +1,34 @@
 from flask import Blueprint, render_template, request, redirect
-from models import Repertorio
+from models import Repertorio, Tema
 from utils import db
+from flask_login import current_user, login_required
+from datetime import datetime
+
 
 bp_repertorios = Blueprint('repertorios', __name__ , template_folder='templates')
 
-@bp_repertorios.route('/cadastro', methods = ['GET', 'POST'])
-def repertorio_cadastro():
+@bp_repertorios.route('/cadastro/<int:id>', methods = ['GET', 'POST'])
+def repertorio_cadastro(id):
   
   if request.method == 'GET':
     
-    return render_template('repertorio_cadastro.html')
+    return render_template('repertorio_cadastro.html', id=id)
 
   else:
     titulo = request.form.get('titulo')
+    conteudo = request.form.get('conteudo')
     descricao = request.form.get('descricao')
     referencia = request.form.get('referencia')
+    tipo = request.form.get('tipo')
+    data = datetime.now()
+    avaliacao = 2
 
-    repertorio = Repertorio(titulo, descricao, referencia)
+    tema = Tema.query.get(id)
+
+    repertorio = Repertorio(titulo, conteudo, descricao, referencia, tipo, data, avaliacao)
+    repertorio.usuario = current_user
+    
+    tema.repertorio.append(repertorio)
     db.session.add(repertorio)
     db.session.commit()
     return 'repertorio cadastrado'
