@@ -1,9 +1,44 @@
-{% extends 'base.html' %}
+
+{% extends 'base_add.html' %}
 {% block conteudo %}
-  <form  method = 'post' action="/colecao/update/{{colecao.id}}">
-    <input type="text" placeholder = 'titulo' value = '{{colecao.nome}}' name = 'nome' >
-    <input type="text" placeholder = 'descrição' value = '{{colecao.descricao}}' name = 'descricao' >
-    <input type="text" placeholder = 'tipo' value = '{{colecao.tipo}}' name = 'tipo' >
-    <button type = 'submit'> atualizar colecao </button>
-  </form>
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/add_conteudo.css')}}">
+{% endblock %}
+
+<div class="d-flex justify-content-center fw-semibold margem">
+  <div class="subtitulo underline ">Adicionar Coleção</div>
+</div>
+
+<div class="d-flex justify-content-center fw-semibold margem">
+
+  <div>
+
+    <form method='post' action="/colecao/update/{{colecao.id}}">
+
+       <div class="subtitulo2">Nome da coleção</div> <br>
+       <div><input type="text" value='{{colecao.nome}}' name='nome' class="input texto" placeholder="Ex.: Repertórios para o Enem" maxlength="10"></div>
+
+      <div class="subtitulo2 margem2">Descrição</div> <br>
+      <textarea  type="text"  value='{{colecao.descricao}}' name='descricao' class="input texto descricao" placeholder="Descreva sobre a sua coleção se trata" id="" cols="30" rows="10" required></textarea>
+
+      <div class="subtitulo2 margem2">Essa coleção será pública ou privada? </div> <br>
+      <div>
+        <select class="tipo_repertorio" value='{{colecao.tipo}}' name='tipo'>
+          <option class="option_select" value="Publica">Pública</option>
+          <option class="option_select" value="privada">Privada</option>
+        </select>
+      </div>
+
+      <div class="margem d-flex justify-content-center">
+        <button type="submit" class="btn botao">Voltar</button>
+        <button type="submit" class="btn botao">Atualizar</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
 {% endblock %}
