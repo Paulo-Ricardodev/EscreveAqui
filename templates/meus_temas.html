@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/meus_temas.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+
+<body>
+
+  <div class="container flex-column">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="tema fw-semibold">Meus temas</div>
+    </div>
+
+    <table>
+
+      <thead>
+          <tr>
+            <th>Título</th>
+            <th>Repertórios</th>
+            <th>Editar</th>
+            <th>Remover</th>
+          </tr>
+      </thead>
+
+      {% for u in usuarios %}
+
+            <tbody>
+              <tr>
+                <td>titulo</td>
+                <td><a href=""><img src="{{url_for('static', filename = 'imgs/repertorios.svg')}}" alt=""></a></td>
+                <td><a href="{{url_for('usuarios.update', id=u.id)}}"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
+                <td><a href="{{url_for('usuarios.delete', id=u.id)}}"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></td>
+              </tr>
+            </tbody>
+
+      {% endfor %}
+
+    </table>
+
+
+  </div>
+
+  
+</body>
+
+{% endblock %}
