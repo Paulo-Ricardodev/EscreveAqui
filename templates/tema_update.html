@@ -1,7 +1,9 @@
 
 {% block conteudo %}
 
-<link rel="stylesheet" href="{{url_for('static', filename = 'style/add_conteudo.css')}}">
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/add_conteudo.css')}}">
+{% endblock %}
 
 <div class="d-flex justify-content-center fw-semibold margem">
   <div class="subtitulo underline ">Atualizar tema</div>

@@ -1,8 +1,9 @@
 {% extends 'base_editar.html' %}
-
 {% block conteudo %}
 
-<link rel="stylesheet" href="{{url_for('static', filename = 'style/base_editar.css')}}">
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/base_editar.css')}}">
+{% endblock %}
 
 <div class="d-flex justify-content-center fw-semibold margem">
   <div class="subtitulo margem-grande">Administrador - Editar conta</div>
