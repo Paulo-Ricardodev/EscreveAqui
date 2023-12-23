@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/ger_temas.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+
+<body>
+  <div class="container flex-column">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="tema fw-semibold">Gerenciar temas</div>
+    </div>
+
+    <table>
+
+      <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>Título</th>
+            <th>Repertórios</th>
+            <th>Editar</th>
+            <th>Remover</th>
+          </tr>
+      </thead>
+
+
+          {% for t in tema %}
+          
+            <tbody>
+              <tr>
+                <td>{{u.nome}}</td>
+                <td>{{t.tema}}</td>
+                <td><a href=""><img src="{{url_for('static', filename = 'imgs/repertorios.svg')}}" alt=""></a></td>
+                <td><a href=""><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
+                <td><a href=""><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></td>
+              </tr>
+
+            </tbody>
+
+          {% endfor %}
+
+
+    </table>
+
+
+  </div>
+
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+.container{
+    width: 1224px;
+    margin-bottom: 100px;
+  }
+  
+  .tema{
+    color: var(--Color-Darkblue);
+    font-size: 28px;
+    font-family: Poppins;
+    margin: 100px;
+    text-decoration: underline;
+  }
+  
+  .titulo{
+    color: var(--Color-Darkblue);
+    font-size: 20px;
+    font-family: Poppins;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--Color-Darkblue);
+  }
+  
+  .edicao{
+    width: 50%;
+  }
+  
+  table{
+    color: var(--Color-Darkblue);
+    width: 100%;
+  }
+  
+  table th{
+    border-bottom: 3px solid var(--Color-Darkblue);
+    color: var(--Color-Darkblue);
+    font-size: 20px;
+    padding: 15px 15px;
+  }
+  
+  table tr td{
+    border-bottom: 3px solid var(--Color-Darkblue);
+    padding: 15px;
+    font-size: 20px;
+    color: var(--Color-Darkblue);
+  }
