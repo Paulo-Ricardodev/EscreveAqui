@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/ger_repertorio.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+
+<body>
+  <div class="container flex-column">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="tema fw-semibold">Gerenciar repertório</div>
+    </div>
+
+    <div class="tema-titulo fw-semibold">
+      <div>Tema: Título do tema</div>
+    </div>
+
+    <table>
+
+      <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>Título</th>
+            <th>Editar</th>
+            <th>Remover</th>
+          </tr>
+      </thead>
+
+    
+          {% for r in repertorio %}
+      
+            <tbody>
+              <tr>
+                <td>{{u.nome}}</td>
+                <td>{{t.titulo}}</td>
+                <td><a href=""><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
+                <td><a href=""><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></td>
+              </tr>
+
+            </tbody>
+
+          {% endfor %}
+
+    </table>   
+    
+  </div>
+  
+</body>
+
+{% endblock %}
