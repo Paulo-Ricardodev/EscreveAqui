@@ -80,3 +80,15 @@ a {
   font-size:20px;
   font-weight: 300;
 }
+
+.margem-grande{
+  margin-top: 190px;
+}
+
+.margem-media{
+  margin-top: 100px;
+}
+
+.margem-pequena{
+  margin-top: 20px;
+}

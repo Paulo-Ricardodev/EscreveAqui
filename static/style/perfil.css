@@ -1,42 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-:root{
-  --Color-Darkblue: #1A3E68;
-  --Color-Bege: #F1DAC4;
-  --Color-Lightblue: #B0D6EC;
-  --Color-blue: #7DA0CA;
-  --Color-Branco: #fff;
-}
-
-html {
-  height: 100%;
-  width: 100%;
-}
-
-.perfil_body{
-  font-family: Lato;
-  background-color: white;
-}
-
-.perfil_header{
-  background-color: var(--Color-Darkblue);
-
-}
-
-.list-item{
-  list-style: none;
-  margin-left: 25px;
-}
-.list-a{
-  text-decoration: none;
-  color: var(--Color-Branco);
-  font-size: 20px;
-}
-
+ 
 .publicar-tema{
   color: var(--Color-Darkblue);
   background-color: var(--Color-Bege);
@@ -46,13 +8,67 @@ html {
   width: 10em;
 }
 
-.perfil_button{
+.botao{
   color: var(--Color-Bege);
   background-color: var(--Color-Darkblue);
-  border-radius: 15px;
-  box-shadow:  0 2px 3px 0 black;
-  font-size: 30px;
+  border-color: var(--Color-Darkblue);
+  box-shadow:  0 4px 5px 0 var(--Color-Darkblue);
 }
-.perfil_footer{
-  background-color: var(--Color-Darkblue);
+
+.botao:hover{
+  background-color: var(--Color-Lightblue);
+  color: var(--Color-Darkblue);
+  border-color: var(--Color-Darkblue);
+  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-out;
 }
+
+
+.minhas_informacoes{
+  background-color: var(--Color-Bege);
+  color: var(--Color-Darkblue);
+  width: 410px;
+  height: 108px;
+  border-radius: 30px;
+}
+
+.subtitulo{
+  font-family: Poppins;
+  font-size: 36px;
+  color: var(--Color-Darkblue);
+}
+
+.subtitulo2{
+  color: var(--Color-Darkblue);
+  font-family: Lato;
+  font-size: 28px;
+}
+
+.texto{
+  font-family: Lato;
+  font-size: 20px;
+  color: var(--Color-Darkblue);
+}
+
+.margem-lado{
+  margin-left: 60px;
+}
+
+.pontuacao{
+  width: 726px;
+  height: 108px;
+  background-color: var(--Color-Bege);
+  color: var(--Color-Darkblue);
+  border-radius: 30px;
+}
+
+.borda-lateral{
+  border-left: 3px solid var(--Color-Darkblue);
+  border-right: 3px solid var(--Color-Darkblue);
+  padding: 0px 70px 0px 70px;
+}
+
+.margem-baixo{
+  margin-bottom: 190px;
+}
+
