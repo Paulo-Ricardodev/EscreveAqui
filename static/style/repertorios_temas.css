@@ -1,0 +1,49 @@
+.container{
+    width: 1224px;
+    margin-bottom: 100px;
+  }
+  .titulo{
+    color: var(--Color-Darkblue);
+    font-size: 28px;
+    font-family: Poppins;
+    margin: 100px;
+    text-decoration: underline;
+  }
+  .text-descricao{
+    color: var(--Color-Darkblue);
+    text-align: justify;
+    margin-bottom: 50px;
+  }
+  .result{
+    color: var(--Color-Darkblue);
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+  .tema-box{
+    height: 100px;
+    background: var(--Color-Darkblue);
+    border-radius: 38px;
+    color: var(--Color-Bege);
+    margin-bottom: 30px;
+  }
+  .botao{
+    color: var(--Color-Darkblue);
+    transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-out;
+    padding: 12px 32px;
+    border-radius: 10px;
+    border: 1px solid var(--Color-Lightblue);
+    background: var(--Color-Lightblue);
+  }
+  .botao:hover{
+    background-color: var(--Color-Darkblue);
+    color: var(--Color-Bege);
+    border-color: var(--Color-Bege);
+  }
+  .tema{
+    padding-left: 80px;
+    font-size: 20px;
+  }
+  .botao-abrir{
+    padding-right: 80px;
+  }

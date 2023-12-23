@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/repertorios_temas.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+
+<body>
+  <div class="container flex-column">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="titulo fw-semibold">
+        <div>Repertórios relacionados ao tema</div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column">
+      <div class="result fw-bold">Descrição</div>
+      <div class="text-descricao">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap i
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap i</div>
+    </div>
+
+    <div class="result fw-bold">
+      <div>Repertórios</div>
+    </div>
+    
+    <div class="tema-box d-flex justify-content-between align-items-center">
+      <div class="tema d-flex ">
+        <div>A.I. inteligência artificial </div>
+      </div>
+      <div class="botao-abrir fw-semibold d-flex">
+        <div><a class="botao" href="#">Abrir</a></div>
+      </div>
+    </div>
+
+    <div class="tema-box d-flex justify-content-between align-items-center">
+      <div class="tema d-flex ">
+        <div>Documentário</div>
+      </div>
+      <div class="botao-abrir fw-semibold d-flex">
+        <div><a class="botao" href="#">Abrir</a></div>
+      </div>
+    </div>
+
+    <div class="tema-box d-flex justify-content-between align-items-center">
+      <div class="tema d-flex ">
+        <div>Filme</div>
+      </div>
+      <div class="botao-abrir fw-semibold d-flex">
+        <div><a class="botao" href="#">Abrir</a></div>
+      </div>
+    </div>
+
+    
+  </div>
+
+
+</body>
+
+{% endblock %}

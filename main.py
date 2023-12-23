@@ -44,8 +44,6 @@ def perfil():
         return redirect('/usuario/login')
 
 
-
-
 @app.errorhandler(401)
 def acesso_negado(e):
     # note that we set the 404 status explicitly
