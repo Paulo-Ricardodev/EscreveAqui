@@ -46,13 +46,14 @@ class Repertorio(db.Model):
   data = db.Column(db.DateTime, default=datetime.now())
   avaliacao = db.Column(db.Integer, nullable=True)
   id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'))
-
+  #temas = db.relationship('Tema', secondary='tema_repertorio', backref=db.backref('repertorios', lazy='dynamic'))
+  
   usuario = db.relationship('Usuario', foreign_keys = id_usuario)
   colecao = db.relationship('Colecao', secondary=Colecao_reper, backref='repertorios')
 
   def __init__(self, titulo, conteudo, descricao, referencia, tipo, data, avaliacao ):
     self.titulo = titulo
-    self.conteudo = conteudo
+    self.conteudo = conteudo  
     self.descricao = descricao
     self.referencia = referencia
     self.tipo = tipo
@@ -115,11 +116,11 @@ class Tipo_repertorio(db.Model):
     self.pontuacao = pontuacao
     self.descricao = descricao
 
-'''class Tema_repertorio(db.Model):
+class Tema_repertorio(db.Model):
   __tablename__ = 'tema_repertorio'
-  id = db.Column(db.Integer, primary_key = True)
-  tema_id = db.Column(db.Integer, db.ForeignKey('tema.id'))
-  repertorio_id = db.Column(db.Integer, db.ForeignKey('repertorio.id'))
+  #id = db.Column(db.Integer, primary_key = True)
+  tema_id = db.Column(db.Integer, db.ForeignKey('tema.id'), primary_key=True)
+  repertorio_id = db.Column(db.Integer, db.ForeignKey('repertorio.id'), primary_key=True)
 
   repertorio = db.relationship('Repertorio', foreign_keys = repertorio_id)
   tema = db.relationship('Tema', foreign_keys = tema_id)
@@ -127,7 +128,7 @@ class Tipo_repertorio(db.Model):
   def __init__(self, tema_id, repertorio_id):
     self.tema_id = tema_id
     self.repertorio_id = repertorio_id
-'''
+
 
 class Comentario(db.Model):
   __tablename__ = 'comentario'

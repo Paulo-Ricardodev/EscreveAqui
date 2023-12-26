@@ -28,7 +28,7 @@
         <div>{{r.titulo}} </div>
       </div>
       <div class="botao-abrir fw-semibold d-flex">
-        <div><a class="botao" href="url_for('repertorios..repertorio_abrir', repertorio_id = r.id, tema_id = tema.id)">Abrir</a></div>
+        <div><a class="botao" href="{{url_for('repertorios.repertorio_abrir', id = r.id)}}">Abrir</a></div>
       </div>
     </div>
     {% endfor %}

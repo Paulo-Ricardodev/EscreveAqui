@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-from models import Tema, Repertorio, Tem_reper
+from models import Tema, Repertorio, Tema_repertorio
 from utils import db
 from flask_login import current_user, login_required
 
@@ -86,18 +86,28 @@ def tema_abrir(id):
 
 
   tema = Tema.query.get(id)
-  repertorio = db.session.query(
+  #repertorio = db.session.query(
+  #    Repertorio,
+  #    Tema,
+  #).join(
+  #    Tem_reper, Repertorio.id == Tem_reper.c.repertorio_id  # Junção com a tabela associativa
+  #).join(
+  #    Tema, Tem_reper.c.tema_id == tema.id  # Sem aspas em "tema"
+  #).filter(
+  #    Repertorio.id == id,
+  #).all()
+
+  '''repertorio = db.session.query(
       Repertorio,
-      Tema,
+      Tem_reper,
   ).join(
       Tem_reper, Repertorio.id == Tem_reper.c.repertorio_id  # Junção com a tabela associativa
-  ).join(
-      Tema, Tem_reper.c.tema_id == tema.id  # Sem aspas em "tema"
   ).filter(
-      Repertorio.id == id,
+      Tem_reper.tema_id == id,
   ).all()
+'''
 
-
-
+  repertorio = db.session.query(Repertorio).join(Tema_repertorio).filter(Tema_repertorio.tema_id == id).all()
+  print(repertorio)
   return render_template('repertorios_temas.html', tema = tema, repertorio = repertorio)
 

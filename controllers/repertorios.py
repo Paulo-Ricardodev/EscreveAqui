@@ -19,7 +19,7 @@ def repertorio_cadastro(id):
     conteudo = request.form.get('conteudo')
     descricao = request.form.get('descricao')
     referencia = request.form.get('referencia')
-    tipo = request.form.get('tipo')
+    tipo = request.form.get('tipo_repertorio')
     data = datetime.now()
     avaliacao = 2
 
