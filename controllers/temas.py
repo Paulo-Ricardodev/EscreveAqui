@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-from models import Tema
+from models import Tema, Repertorio, Tem_reper
 from utils import db
 from flask_login import current_user, login_required
 
@@ -80,3 +80,24 @@ def tema_delete(id):
     db.session.commit()
 
     return 'tema deletado'
+  
+@bp_temas.route("/abrir/<int:id>", methods = ['GET', 'POST'])
+def tema_abrir(id):
+
+
+  tema = Tema.query.get(id)
+  repertorio = db.session.query(
+      Repertorio,
+      Tema,
+  ).join(
+      Tem_reper, Repertorio.id == Tem_reper.c.repertorio_id  # Junção com a tabela associativa
+  ).join(
+      Tema, Tem_reper.c.tema_id == tema.id  # Sem aspas em "tema"
+  ).filter(
+      Repertorio.id == id,
+  ).all()
+
+
+
+  return render_template('repertorios_temas.html', tema = tema, repertorio = repertorio)
+
