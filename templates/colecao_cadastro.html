@@ -14,10 +14,10 @@
 
   <div>
 
-    <form method='post' action = '/colecao/criar' enctype="multipart/form-data">
+    <form method='post' action ="{{url_for('colecoes.colecao_cadastro', id = repertorio.id) }}" enctype="multipart/form-data">
 
        <div class="subtitulo2">Nome da coleção</div> <br>
-       <div><input type="text" name='nome' class="input texto" placeholder="Ex.: Repertórios para o Enem" maxlength="10"></div>
+       <div><input type="text" name='nome' class="input texto" placeholder="Ex.: Repertórios para o Enem" maxlength="25"></div>
 
       <div class="subtitulo2 margem2">Descrição</div> <br>
       <textarea name="descricao" class="input texto descricao" placeholder="Descreva sobre a sua coleção se trata" id="" cols="30" rows="10" required></textarea>

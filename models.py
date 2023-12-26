@@ -7,6 +7,10 @@ Tem_reper = db.Table('Tema_repertorio',
                     db.Column('tema_id', db.Integer, db.ForeignKey('tema.id')),
                     db.Column('repertorio_id', db.Integer, db.ForeignKey('repertorio.id'))
                     )
+Colecao_reper = db.Table('Colecao_repertorio',
+                    db.Column('colecao_id', db.Integer, db.ForeignKey('colecao.id')),
+                    db.Column('repertorio_id', db.Integer, db.ForeignKey('repertorio.id'))
+                    )
 
 class Usuario(UserMixin, db.Model):
 
@@ -44,6 +48,7 @@ class Repertorio(db.Model):
   id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'))
 
   usuario = db.relationship('Usuario', foreign_keys = id_usuario)
+  colecao = db.relationship('Colecao', secondary=Colecao_reper, backref='repertorios')
 
   def __init__(self, titulo, conteudo, descricao, referencia, tipo, data, avaliacao ):
     self.titulo = titulo
@@ -80,19 +85,15 @@ class Colecao(db.Model):
   __tablename__ = "colecao"
   id = db.Column(db.Integer, primary_key = True)
   id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'))
-  repertorio_id = db.Column(db.Integer, db.ForeignKey('repertorio.id'))
-  titulo = db.Column(db.String(80), nullable=True)
+  nome = db.Column(db.String(80), nullable=True)
   descricao = db.Column(db.String(120), nullable=True)
   tipo = db.Column(db.String(80), nullable=True)
 
   usuario = db.relationship('Usuario', foreign_keys = id_usuario)
-  repertorio = db.relationship('Repertorio', foreign_keys = repertorio_id)
+ 
 
-  def __init__(self, usuario_id, repertorio_id, titulo, descricao, tipo):
-
-    self.usuario_id = usuario_id
-    self.repertorio_id = repertorio_id
-    self.titulo = titulo
+  def __init__(self, nome, descricao, tipo):
+    self.nome = nome
     self.descricao = descricao
     self.tipo = tipo
 

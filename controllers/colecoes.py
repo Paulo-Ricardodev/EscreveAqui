@@ -1,24 +1,33 @@
 from flask import Blueprint, render_template, request, redirect
-from models import Colecao
+from models import Colecao, Repertorio
 from utils import db
+from flask_login import current_user, login_required
+
 
 bp_colecoes = Blueprint('colecoes', __name__ , template_folder='templates')
 
-@bp_colecoes.route('/criar', methods = ['GET','POST'])
-def colecao_cadastro():
+@bp_colecoes.route('/criar/<int:id>', methods = ['GET','POST'])
+def colecao_cadastro(id):
+  repertorio = Repertorio.query.get(id)
+
   if request.method == "GET":
     
-    return render_template('colecao_cadastro.html')
+    return render_template('colecao_cadastro.html', repertorio = repertorio)
 
   if request.method == "POST":
 
-    usuario_id = request.form.get('usuario_id')
-    repertorio_id = request.form.get('repertorio_id')
+
     nome = request.form.get('nome')
     descricao = request.form.get('descricao')
+    tipo = request.form.get('tipo')
+
+    repertorio = Repertorio.query.get(id)
 
 
-    colecao = Colecao(usuario_id, repertorio_id, nome, descricao)
+    colecao = Colecao(nome, descricao, tipo)
+    colecao.usuario = current_user
+
+    repertorio.colecao.append(colecao)
 
     db.session.add(colecao)
     db.session.commit()

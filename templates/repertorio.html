@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{url_for('static', filename = 'style/repertorio.css')}}">
 
 <div class="d-flex justify-content-center fw-semibold margem-pequena">
-  <div class="subtitulo underline" name="titulo" value="{{r.titulo}}">Nome do repertório</div>
+  <div class="subtitulo underline" name="titulo" >{{repertorio.titulo}}</div>
 </div>
 
 <div class="d-flex justify-content-center margem-grande fw-semibold">
@@ -18,7 +18,7 @@
       <button class="button-sem-estyle"><img src="{{url_for('static', filename = 'imgs/curtir.svg')}}" alt=""></button> 
     </i>
     <i data-toggle="tooltip" title="Salvar em uma coleção">
-      <button  class="button-sem-estyle"><img src="{{url_for('static', filename = 'imgs/favoritar.svg')}}" alt=""></button>
+      <button  class="button-sem-estyle"><a href="{{url_for('colecoes.colecao_cadastro', id = repertorio.id) }}"><img src="{{url_for('static', filename = 'imgs/favoritar.svg')}}" alt=""></a></button>
     </i>
     <i data-toggle="tooltip" title="Denunciar esse repertório">
       <button  class="button-sem-estyle"><img src="{{url_for('static', filename = 'imgs/denunciar.svg')}}" alt=""></button>
@@ -30,25 +30,23 @@
 
 <div class="d-flex justify-content-center margem-grande">
   <div class="tamanho-conteiner">
-    <div class="subtitulo"><b>Tipo de repertório:</b> Literário</div> <br>
+    <div class="subtitulo"><b>Tipo de repertório:</b> {{repertorio.tipo}}</div> <br>
     <div class="subtitulo2 margem-media fw-semibold">Repertório</div> <br>
-    <div class="texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap i
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap i</div>
+    <div class="texto">{{repertorio.conteudo}}</div>
   </div> 
 </div>
 
 <div class="d-flex justify-content-center margem-media">
   <div class="tamanho-conteiner">
     <div class="subtitulo2 fw-semibold">Descrição</div> <br>
-    <div class="texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap i
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap i</div>
+    <div class="texto">{{repertorio.descrição}}</div>
   </div>
 </div>
 
 <div class="d-flex justify-content-center margem-media">
   <div class="tamanho-conteiner">
     <div class="subtitulo2 fw-semibold">Referências</div> <br>
-    <div class="texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap i</div>
+    <div class="texto">{{repertorio.referencia}}</div>
   </div>
 </div>
 
