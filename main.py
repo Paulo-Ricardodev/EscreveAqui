@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'senha'
 
-conexao = 'mysql+pymysql://talyta:Pr0jet0EscreveAqui#2217@escreveaqui.mysql.database.azure.com/integrador'
+conexao = "mysql+pymysql://talyta:escreveaqui/2024@escreveaqui.mysql.database.azure.com/escreve"
 app.config['SQLALCHEMY_DATABASE_URI'] = conexao
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
