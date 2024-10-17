@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, session
 from models import Usuario
 from utils import db, lm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
@@ -32,7 +32,7 @@ def cadastro_usuario():
       usuario = Usuario(nome,  email, hashed_senha, pontuacao, eval(admin))
       db.session.add(usuario)
       db.session.commit()
-      return redirect(url_for('index'))
+      return redirect(url_for('usuarios.login'))
     else:
       return 'As senhas não coincidem'
 
@@ -160,9 +160,23 @@ def autenticar():
     login_user(usuario)
     return redirect(url_for('index'))
   else:
-    return 'Credenciais inválidas'
+    flash('Credenciais inválidas. Tente novamente.', 'error') 
+    return redirect(url_for('usuarios.login'))
+  
 
-@bp_usuarios.route('/logoff')
+@bp_usuarios.route('/editar_perfil/<int:id>')
+def editar_perfil(id):
+
+  usuario = Usuario.query.filter_by(id=id).first()
+
+
+@bp_usuarios.route('/nova_senha')
+def nova_senha():
+  return ''
+
+
+
+@bp_usuarios.route('/logoff', methods=['POST'])
 def logoff():
-  logout_user()
-  return redirect('/')
+    logout_user()  # Usa o Flask-Login para deslogar o usuário
+    return redirect(url_for('index'))  # Redireciona para a página inicial

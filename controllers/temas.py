@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from models import Tema, Repertorio, Tema_repertorio
 from utils import db
 from flask_login import current_user, login_required
@@ -13,6 +13,7 @@ def tema_cadastro():
   if request.method == 'GET':
     
     return render_template("tema_cadastro.html")
+  
 
   else:
     
@@ -28,10 +29,12 @@ def tema_cadastro():
         db.session.add(tema)
         db.session.commit()
 
-        return 'tema cadastrado'
+        flash('Tema cadastrado com sucesso!', 'success')  # Flash de sucesso
+        return redirect(url_for('index')) 
     
     else:
       return current_user
+    
       
 
 @bp_temas.route("/recovery")
@@ -39,10 +42,12 @@ def tema_recovery():
   tema = Tema.query.all()
   return render_template('tema_recovery.html', tema = tema)
 
+
 @bp_temas.route('/pesquisa', methods = ['GET'])
 def pesquisa():
   tema = Tema.query.all()
   return render_template('pesquisa.html', tema = tema)
+
 
 @bp_temas.route("/update/<int:id>", methods = ['GET', 'POST'])
 def tema_update(id):
