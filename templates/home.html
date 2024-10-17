@@ -4,9 +4,32 @@
 
 <link rel="stylesheet" href="{{url_for('static', filename = 'style/home.css')}}">
 
+
 <title>home</title>
 
+<div class="background-azul d-flex justify-content-evenly align-items-center">
+  <!-- Exibe as mensagens flash para tema cadastrado-->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="container mt-3">
+        <ul class="list-unstyled">
+          {% for category, message in messages %}
+            <li class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endwith %}
+</div>
+
+
+
+
 <div class="background-azul bg-inicio d-flex justify-content-evenly align-items-center">
+
   <div>
     <div class="margem2 titulo fw-bold text-white">Encontre o repertório que você precisa!</div>
     <div class="margem2 text-white subtitulo fw-lighter">Ajude outras pessoas, Interaja!</div>

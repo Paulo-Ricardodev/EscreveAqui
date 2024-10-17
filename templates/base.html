@@ -52,6 +52,12 @@
               Publicar tema
             </button>
           </a>
+          <form action="{{url_for('usuarios.logoff')}}" method="post" style="display: inline;" onsubmit="return confirmLogout();">
+            <button type="submit" class="btn btn-outline-info">
+              Sair
+            </button>
+          </form>
+
         
         {% else %}
         
@@ -107,3 +113,9 @@
 
 </body>
 </html>
+
+<script>
+  function confirmLogout() {
+      return confirm('Deseja realmente sair?');
+  }
+</script>
