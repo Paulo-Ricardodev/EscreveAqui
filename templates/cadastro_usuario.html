@@ -33,7 +33,7 @@
           <div class="logo d-flex justify-content-center">
             <img src="{{url_for('static', filename='imgs/logo-cadastro.svg')}}">
           </div>
-          <form method='post' >
+          <form method='post'>
             <div>
               <div class="input-box">
                 <label class="fw-semibold">Nome</label>
@@ -50,13 +50,13 @@
             <div class="d-flex justify-content-between">
               <div class="input-box">
                 <label class="fw-semibold">Senha</label>
-                <input type="password" name='senha' placeholder="mínimo 8 dígitos" required>
+                <input type="password" name='senha' placeholder="mínimo 8 dígitos" minlength="8" required>
               </div>
 
               <div class="input-box">
                 <div class="input-box">
                   <label class="fw-semibold">Confirme sua senha</label>
-                  <input type="password" name='csenha' placeholder="confirme sua senha" required>
+                  <input type="password" name='csenha' placeholder="confirme sua senha" minlength="8" required>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, url_for,flash
 from models import Repertorio, Tema
 from utils import db
 from flask_login import current_user, login_required
@@ -31,7 +31,10 @@ def repertorio_cadastro(id):
     tema.repertorio.append(repertorio)
     db.session.add(repertorio)
     db.session.commit()
-    return 'repertorio cadastrado'
+
+    flash('Repertório cadastrado com sucesso!', 'success')  # Flash de sucesso
+    return redirect(url_for('index')) 
+    
 
 @bp_repertorios.route("/recovery")
 def repertorio_recovery():

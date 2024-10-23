@@ -118,3 +118,8 @@ body{
   margin-right: 350px;
   margin-top: 20px;
 }
+
+.mensagem{
+  color: var(--Color-Lightblue);
+  font-size: 20px;
+}
