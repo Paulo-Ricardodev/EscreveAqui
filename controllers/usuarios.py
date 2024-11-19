@@ -1,8 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, session
-from models import Usuario
+from models import Usuario, Repertorio, Tema
 from utils import db, lm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_bcrypt import Bcrypt
+from sqlalchemy import func
 
 
 
@@ -57,7 +58,38 @@ def login():
         else:
           
             return jsonify({"message": "Credenciais inválidas"}), 401
+
+def pontuacao():
+  quant_repertorio = int(repertorios_usuario(id))
+  for i in quant_repertorio:
+     Usuario.pontuacao += 40
+     db.session.commit()
   
+    
+@bp_usuarios.route('/perfil')
+def perfil():
+    id = current_user.id
+    quant_repertorio = int(repertorios_usuario(id))
+    quant_tema = int(temas_usuario(id))
+    pontuacao = 0
+
+    for i in range(quant_repertorio):
+     pontuacao += 40
+    for i in range(quant_tema):
+       pontuacao = pontuacao - 100
+
+    usuario = Usuario.query.get(id)
+    usuario.pontuacao = pontuacao
+    db.session.add(usuario)
+    db.session.commit()
+
+
+    if current_user.is_authenticated:
+        return render_template('perfil.html', quant_repertorio = quant_repertorio, quant_tema = quant_tema)
+    else:
+        return redirect('/usuario/login')
+
+
 @bp_usuarios.route("/recovery")
 @login_required
 def recovery():
@@ -174,7 +206,18 @@ def editar_perfil(id):
 def nova_senha():
   return ''
 
+@bp_usuarios.route("/resultado/<int:id>")
+def repertorios_usuario(id):
+    quant_repertorio = db.session.query(func.count(Repertorio.id)).\
+        filter(Repertorio.id_usuario == id).scalar()
 
+    return quant_repertorio
+
+def temas_usuario(id):
+    quant_tema = db.session.query(func.count(Tema.id)).\
+        filter(Tema.id_usuario == id).scalar()
+
+    return quant_tema
 
 @bp_usuarios.route('/logoff', methods=['POST'])
 def logoff():
