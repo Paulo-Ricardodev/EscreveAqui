@@ -42,7 +42,6 @@ class Repertorio(db.Model):
   conteudo = db.Column(db.String(10000), nullable = True)
   descricao = db.Column(db.String(200), nullable=True)
   referencia = db.Column(db.String(120), nullable=True, default=False)
-  tipo = db.Column(db.String(80), nullable=True)
   data = db.Column(db.DateTime, default=datetime.now())
   avaliacao = db.Column(db.Integer, nullable=True)
   id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id'))
@@ -56,7 +55,6 @@ class Repertorio(db.Model):
     self.conteudo = conteudo  
     self.descricao = descricao
     self.referencia = referencia
-    self.tipo = tipo
     self.data = data
     self.avaliacao = avaliacao
 
@@ -102,19 +100,7 @@ class Colecao(db.Model):
 
     return 'Olá, {}! a sua coleção tem esses repertórios: {}'.format(self.usuario.nome, self.repertorio.titulo)
   
-class Tipo_repertorio(db.Model):
-  __tablename__ = 'tipo_repertorio'
-  id = db.Column(db.Integer, primary_key = True)
-  repertorio_id = db.Column(db.Integer, db.ForeignKey('repertorio.id'))
-  pontuacao = db.Column(db.Integer, nullable = True)
-  descricao = db.Column(db.String(200), nullable = True)
 
-  repertorio = db.relationship('Repertorio', foreign_keys = repertorio_id)
-
-  def __init__(self, repertorio_id, pontuacao, descricao):
-    self.repertorio_id = repertorio_id
-    self.pontuacao = pontuacao
-    self.descricao = descricao
 
 class Tema_repertorio(db.Model):
   __tablename__ = 'tema_repertorio'

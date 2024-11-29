@@ -19,13 +19,12 @@ def repertorio_cadastro(id):
     conteudo = request.form.get('conteudo')
     descricao = request.form.get('descricao')
     referencia = request.form.get('referencia')
-    tipo = request.form.get('tipo_repertorio')
     data = datetime.now()
     avaliacao = 2
 
     tema = Tema.query.get(id)
 
-    repertorio = Repertorio(titulo, conteudo, descricao, referencia, tipo, data, avaliacao)
+    repertorio = Repertorio(titulo, conteudo, descricao, referencia, data, avaliacao)
     repertorio.usuario = current_user
     
     tema.repertorio.append(repertorio)
