@@ -163,11 +163,27 @@ def autenticar():
     flash('Credenciais inválidas. Tente novamente.', 'error') 
     return redirect(url_for('usuarios.login'))
   
+#rota para editar o usuário que está logado
+@bp_usuarios.route('/editar_perfil', methods = ['GET', 'POST'])
+@login_required
+def editar_perfil():
+  usuario = current_user
 
-@bp_usuarios.route('/editar_perfil/<int:id>')
-def editar_perfil(id):
+  if request.method == 'GET':
+    return render_template("editar_perfil.html", usuario = usuario)
+  
+  if request.method == 'POST':
+    nome = request.form.get('nome')
+    email = request.form.get('email')
+    admin = request.form.get('admin')
+   
+    usuario.nome = nome
+    usuario.email = email
+    
+    db.session.add(usuario)
+    db.session.commit()
+    return redirect('/perfil')
 
-  usuario = Usuario.query.filter_by(id=id).first()
 
 
 @bp_usuarios.route('/nova_senha')
@@ -176,7 +192,7 @@ def nova_senha():
 
 
 
-@bp_usuarios.route('/logoff', methods=['POST'])
+@bp_usuarios.route('/logoff', methods=['GET', 'POST'])
 def logoff():
     logout_user()  # Usa o Flask-Login para deslogar o usuário
     return redirect(url_for('index'))  # Redireciona para a página inicial

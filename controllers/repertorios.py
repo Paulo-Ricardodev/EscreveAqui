@@ -83,3 +83,12 @@ def repertorio_delete(id):
 def repertorio_abrir(id):
   repertorio = Repertorio.query.get(id)
   return render_template('repertorio.html', repertorio = repertorio)
+
+
+
+
+@bp_repertorios.route("/meusrepertorios", methods = ['GET'])
+@login_required
+def meusrepertorios():
+  repertorio_usuario = Repertorio.query.filter_by(id_usuario=current_user.id).all()
+  return render_template('meus_repertorios.html', repertorios=repertorio_usuario)

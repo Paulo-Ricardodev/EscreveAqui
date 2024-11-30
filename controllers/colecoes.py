@@ -77,5 +77,11 @@ def colecao_delete(id):
     db.session.commit()
     return 'coleção deletada'
 
+
+
+@bp_colecoes.route('/minhascolecoes', methods = ['GET', 'POST'])
+@login_required
+def minhascolecoes():
+  return render_template('minhascolecoes.html')
     
     

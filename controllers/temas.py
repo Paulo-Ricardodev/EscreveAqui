@@ -116,3 +116,10 @@ def tema_abrir(id):
   print(repertorio)
   return render_template('repertorios_temas.html', tema = tema, repertorio = repertorio)
 
+
+@bp_temas.route("/meustemas", methods=['GET'])
+@login_required
+def meustemas():
+    temas_usuario = Tema.query.filter_by(id_usuario=current_user.id).all()
+
+    return render_template('meustemas.html', temas=temas_usuario)

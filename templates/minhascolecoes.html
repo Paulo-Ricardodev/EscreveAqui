@@ -1,0 +1,55 @@
+{% extends 'base_editar.html' %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'css/minhascolecoes.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+
+<body>
+
+  <div>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="fw-semibold tema">Minhas coleções</div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      
+      <div class="pasta">
+        <div class="pasta2 d-flex justify-content-end">
+          <div class="d-flex icones">
+            <div><a href=""><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></div>
+            <div><img src="{{url_for('static', filename = 'imgs/publico.svg')}}" alt=""></div>
+          </div>
+        </div>
+        <div class="txt-colecao fw-semibold">Título da coleção</div>
+      </div>
+
+      <div class="pasta">
+        <div class="pasta2 d-flex justify-content-end">
+          <div class="d-flex icones">
+            <div><a href=""><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></div>
+            <div><img src="{{url_for('static', filename = 'imgs/publico.svg')}}" alt=""></div>
+          </div>
+        </div>
+        <div class="txt-colecao fw-semibold">Título da coleção</div>
+      </div>
+
+      <div class="pasta">
+        <div class="pasta2  d-flex justify-content-end">
+          <div class="d-flex icones">
+            <div><a href=""><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></div>
+            <div><img src="{{url_for('static', filename = 'imgs/privado.svg')}}" alt=""></div>
+          </div>
+        </div>
+        <div class="txt-colecao fw-semibold">Título da coleção</div>
+      </div>
+      
+    </div>
+    
+
+  </div>
+  
+</body>
+
+{% endblock %}

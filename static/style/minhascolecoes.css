@@ -1,0 +1,40 @@
+.container{
+    width: 1224px;
+    margin-bottom: 100px;
+  }
+  
+  .tema{
+    color: var(--Color-Darkblue);
+    font-size: 28px;
+    font-family: Poppins;
+    margin: 100px;
+    text-decoration: underline;
+  }
+  
+  .pasta{
+    width: 395px;
+    height: 266px;
+    border-radius: 30px;
+    background-color: var(--Color-Darkblue);
+    margin-left: 15px;
+    margin-bottom: 30px;  
+  }
+  
+  .pasta2{
+    width: 395px;
+    height: 175px;
+    background-color: var(--Color-Bege);
+    border-radius: 30px;
+  }
+  
+  .txt-colecao{
+    color: var(--Color-Bege);
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 20px;
+  }
+  
+  .icones{
+    margin-top: 20px;
+    margin-right: 20px;
+  }
