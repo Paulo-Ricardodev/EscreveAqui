@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/meus_repertorios.css')}}">
+{% endblock %}
+
+<div class="d-flex justify-content-center fw-semibold margem-grande">
+  <div class="subtitulo underline ">Adicionar Repertório</div>
+</div>
+
+
+{% for repertorio in repertorios %}
+<div  class="d-flex justify-content-center fw-semibold margem-grande">
+  <div class="repertorio">
+	<div class="titulo_rep margem-media fw-light borda"><b>Repertório:</b> {{ repertorio.titulo }}</div>
+	<div class="d-flex justify-content-center margem-media">
+  	<div class="bloco-rep">
+    	<div class="texto fw-light"> <b>Tema:</b> {{ repertorio.temas }}</div>
+    	<div class="texto fw-light margem-pequena"> <b>Tipo:</b> Filme</div>
+   	 
+    	<div class="d-flex texto  justify-content-between margem-pequena fw-light">
+      	<div> <b>Curtidas:</b> 30</div>
+      	<div> <b>Comentários:</b> 5</div>
+      	<div> <b>Favoritados:</b> 3 </div>
+    	</div>
+    	<div class="d-flex texto  justify-content-evenly margem-pequena fw-light">
+      	<button class="botao btn btn-info">Editar</button>
+      	<button class="botao btn btn-info">Ver</button>
+      	<button class="botao btn btn-info">Excluir</button>
+    	</div>
+  	</div>
+	</div>
+  </div>
+
+
+
+  <div class="repertorio">
+	<div class="titulo_rep margem-media fw-light borda"><b>Repertório:</b> A.I. inteligência artificial </div>
+	<div class="d-flex justify-content-center margem-media">
+  	<div class="bloco-rep">
+    	<div class="texto fw-light"> <b>Tema:</b> Os efeitos da inteligência artificial</div>
+    	<div class="texto fw-light margem-pequena"> <b>Tipo:</b> Filme</div>
+
+    	<div class="d-flex texto  justify-content-between margem-pequena fw-light">
+      	<div> <b>Curtidas:</b> 30</div>
+      	<div> <b>Comentários:</b> 5</div>
+      	<div> <b>Favoritados:</b> 3 </div>
+    	</div>
+    	<div class="d-flex texto  justify-content-evenly margem-pequena fw-light">
+      	<button class="botao btn btn-info">Editar</button>
+      	<button class="botao btn btn-info">Ver</button>
+      	<button class="botao btn btn-info">Excluir</button>
+    	</div>
+  	</div>
+	</div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

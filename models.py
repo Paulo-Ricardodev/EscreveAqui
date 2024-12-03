@@ -50,7 +50,7 @@ class Repertorio(db.Model):
   usuario = db.relationship('Usuario', foreign_keys = id_usuario)
   colecao = db.relationship('Colecao', secondary=Colecao_reper, backref='repertorios')
 
-  def __init__(self, titulo, conteudo, descricao, referencia, tipo, data, avaliacao ):
+  def __init__(self, titulo, conteudo, descricao, referencia, data, avaliacao ):
     self.titulo = titulo
     self.conteudo = conteudo  
     self.descricao = descricao

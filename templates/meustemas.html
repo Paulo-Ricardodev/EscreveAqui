@@ -24,18 +24,18 @@
           </tr>
       </thead>
 
-      {% for u in usuarios %}
+      <tbody>
+        {% if temas %}
+          {% for tema in temas %}
+            <tr>
+              <td>{{ tema.titulo }}</td>
+              <td><a href=""><img src="{{url_for('static', filename = 'imgs/repertorios.svg')}}" alt=""></a></td>
+              <td><a href="{{url_for('usuarios.update', id=tema.id)}}"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
+              <td><a href="{{url_for('usuarios.delete', id=tema.id)}}"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></td>
+            </tr>
+          {% endfor %}
+        {% endif %}
 
-            <tbody>
-              <tr>
-                <td>titulo</td>
-                <td><a href=""><img src="{{url_for('static', filename = 'imgs/repertorios.svg')}}" alt=""></a></td>
-                <td><a href="{{url_for('usuarios.update', id=u.id)}}"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
-                <td><a href="{{url_for('usuarios.delete', id=u.id)}}"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></td>
-              </tr>
-            </tbody>
-
-      {% endfor %}
 
     </table>
 
@@ -46,3 +46,4 @@
 </body>
 
 {% endblock %}
+

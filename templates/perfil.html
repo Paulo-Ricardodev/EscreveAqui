@@ -22,7 +22,7 @@
             <div class="subtitulo2"> {{ current_user.nome }} </div>
             <div class="subtitulo2 fw-light"> {{ current_user.email }} </div>
             <div class = 'd-flex justify-content-between margem-pequena'>
-              <a href = "#" >
+              <a href = "{{url_for('usuarios.editar_perfil')}}" >
                 <button class = 'botao btn btn-info'> Editar </button>
               </a>
               <a href = "{{url_for('usuarios.logoff')}}">
@@ -47,11 +47,11 @@
           
         </div>
       </div>
-      
+
       <div class='d-flex flex-column justify-content-evenly fw-bold'>
-        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center margem-pequena' href="#">Minhas coleções</a>
-        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center margem-pequena' href="#">Meus repertórios</a>
-        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center margem-pequena' href="#">Meus temas</a>
+        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center margem-pequena' href="404.html">Minhas coleções</a>
+        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center margem-pequena' href="{{url_for('repertorios.meusrepertorios')}}">Meus repertórios</a>
+        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center margem-pequena' href="{{url_for('temas.meustemas')}}">Meus temas</a>
       </div>
       
     </div>

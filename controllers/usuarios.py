@@ -196,11 +196,6 @@ def autenticar():
     return redirect(url_for('usuarios.login'))
   
 
-@bp_usuarios.route('/editar_perfil/<int:id>')
-def editar_perfil(id):
-
-  usuario = Usuario.query.filter_by(id=id).first()
-
 
 @bp_usuarios.route('/nova_senha')
 def nova_senha():
@@ -218,6 +213,28 @@ def temas_usuario(id):
         filter(Tema.id_usuario == id).scalar()
 
     return quant_tema
+
+#rota para editar o usuário que está logado
+@bp_usuarios.route('/editar_perfil', methods = ['GET', 'POST'])
+@login_required
+def editar_perfil():
+  usuario = current_user
+
+  if request.method == 'GET':
+    return render_template("editar_perfil.html", usuario = usuario)
+  
+  if request.method == 'POST':
+    nome = request.form.get('nome')
+    email = request.form.get('email')
+    admin = request.form.get('admin')
+   
+    usuario.nome = nome
+    usuario.email = email
+    
+    db.session.add(usuario)
+    db.session.commit()
+    return redirect('/perfil')
+
 
 @bp_usuarios.route('/logoff', methods=['POST'])
 def logoff():

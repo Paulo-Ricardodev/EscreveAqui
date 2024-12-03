@@ -1,0 +1,54 @@
+.repertorio{
+    width: 602px;
+    height: 437px;
+    background: var(--Color-Darkblue);
+    margin-left: 60px;
+    border-radius: 52px;
+}
+  
+.subtitulo{
+    font-family: Poppins;
+    font-size: 36px;
+    color: var(--Color-Darkblue);
+}
+  
+.underline{
+    text-decoration: underline;
+}
+  
+.titulo_rep{
+    color: var(--Color-Bege);
+    font-family: Lato;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+}
+  
+.margem-media{
+    margin-top: 60px;
+}
+  
+.margem-pequena{
+    margin-top: 30px;
+}
+  
+.borda{
+    border-bottom: 1px solid var(--Color-Bege);
+}
+  
+.texto{
+    text-align: justify;
+    font-family: Lato;
+    font-size: 20px;
+    color: var(--Color-Bege);
+}
+  
+.bloco-rep{
+    width: 435px;
+    height: 233px;
+}
+  
+.botao{
+    width: 120px;
+    height: 40px;
+}  
