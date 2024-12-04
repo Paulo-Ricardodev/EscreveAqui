@@ -2,12 +2,30 @@
 
 {% block links %}
   <link rel="stylesheet" href="{{url_for('static', filename = 'style/meus_temas.css')}}">
+  
 {% endblock %}
 
 {% block conteudo %}
 
 <body>
 
+<div class=" d-flex justify-content-evenly align-items-center">
+  <!-- Exibe as mensagens flash para tema cadastrado-->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="container mt-3">
+        <ul class="list-unstyled">
+          {% for category, message in messages %}
+            <li class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endwith %}
+</div>
   <div class="container flex-column">
     <div class="d-flex justify-content-center align-items-center">
         <div class="tema fw-semibold">Meus temas</div>
@@ -29,9 +47,9 @@
           {% for tema in temas %}
             <tr>
               <td>{{ tema.titulo }}</td>
-              <td><a href=""><img src="{{url_for('static', filename = 'imgs/repertorios.svg')}}" alt=""></a></td>
-              <td><a href="{{url_for('usuarios.update', id=tema.id)}}"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
-              <td><a href="{{url_for('usuarios.delete', id=tema.id)}}"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></td>
+              <td><a href="{{url_for('temas.tema_abrir', id=tema.id)}}"><img src="{{url_for('static', filename = 'imgs/repertorio.svg')}}" alt=""></a></td>
+              <td><a href="{{url_for('temas.tema_update', id=tema.id)}}"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></td>
+              <td><a href="{{url_for('temas.tema_delete', id=tema.id)}}"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></td>
             </tr>
           {% endfor %}
         {% endif %}
@@ -46,4 +64,3 @@
 </body>
 
 {% endblock %}
-

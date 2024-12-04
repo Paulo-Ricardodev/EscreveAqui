@@ -1,15 +1,3 @@
-{% extends 'base.html' %}
-{% block conteudo %}
-  <form  method = 'post' action="/repertorio/update/{{repertorio.id}}">
-    <input type="text" placeholder = 'titulo' value = '{{repertorio.titulo}}'name = 'titulo' >
-    <input type="text" placeholder = 'descrição' value = '{{repertorio.descricao}}' name = 'descricao' >
-    <input type="text" placeholder = 'referência' value = '{{repertorio.referencia}}' name = 'referencia' >
-    <button type = 'submit'> atualizar repertorio </button>
-  </form>
-{% endblock %}
-
-
-
 
 {% extends 'base_add.html' %}
 {% block conteudo %}
@@ -39,14 +27,7 @@
       <div class="subtitulo2 margem2">Descrição</div> <br>
       <textarea name="descricao" class="input texto descricao"  value = '{{repertorio.descricao}}' placeholder="Escreva como usar esse repertório, quand usar, qualquer anotação pertinente acerca do repertório..." id="" cols="30" rows="10" required></textarea>
 
-      <div class="subtitulo2 margem2">Tipo de repertório</div> <br>
-      <div>
-        <select class="tipo_repertorio" name="tipo_repertorio">
-          <option class="option_select" value="sociocultural">Sociocultural</option>
-          <option class="option_select" value="musical">Musical</option>
-          <option class="option_select" value="literario">Literário</option>
-        </select>
-      </div>
+
 
       <div class="subtitulo2 margem2">Referências</div> <br>
        <div><input type="text" name="referencia" value = '{{repertorio.referencia}}' class="input texto" placeholder="Local de onde o repertório foi tirado." required></div>

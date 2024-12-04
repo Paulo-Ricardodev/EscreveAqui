@@ -45,7 +45,12 @@ def tema_recovery():
 
 @bp_temas.route('/pesquisa', methods = ['GET'])
 def pesquisa():
-  tema = Tema.query.all()
+  if current_user.is_authenticated:
+    tema = Tema.query.all()
+    return render_template('pesquisa.html', tema = tema)
+  else:
+    return redirect('/usuario/login')
+  
   return render_template('pesquisa.html', tema = tema)
 
 
@@ -58,7 +63,7 @@ def tema_update(id):
     
     return render_template('tema_update.html', tema = tema)
 
-  else:
+  if request.method == "POST":
     titulo = request.form.get('titulo')
     descricao = request.form.get('descricao')
 
@@ -68,7 +73,7 @@ def tema_update(id):
 
     db.session.add(tema)
     db.session.commit()
-    return redirect('/tema/recovery')
+    return redirect(url_for('temas.meustemas'))
 
 
 @bp_temas.route("/delete/<int:id>", methods = ['GET', 'POST'])
@@ -84,7 +89,8 @@ def tema_delete(id):
     db.session.delete(tema)
     db.session.commit()
 
-    return 'tema deletado'
+    flash('Tema deletado com sucesso!', 'success') 
+    return redirect(url_for("temas.meustemas"))
   
 @bp_temas.route("/abrir/<int:id>", methods = ['GET', 'POST'])
 def tema_abrir(id):

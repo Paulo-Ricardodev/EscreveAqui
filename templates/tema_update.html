@@ -1,3 +1,4 @@
+{% extends 'base_add.html' %}
 
 {% block conteudo %}
 
@@ -11,7 +12,7 @@
 
 <div class="d-flex justify-content-center fw-semibold margem">
   <div>
-    <form  method = 'post' action="/tema/cadastro">
+    <form  method = 'post' >
        <div class="subtitulo2">Título do tema</div> <br>
        <div><input type="text" value = '{{tema.titulo}}' name="titulo" class="input texto" placeholder="Ex.: Violência doméstica" required></div>
        <div class="subtitulo2 margem2">Descrição</div> <br>
@@ -20,7 +21,8 @@
 
       <div class="margem d-flex justify-content-center">
        <a href="{{url_for('index')}}"> <button type="submit" class="btn botao">Voltar</button> </a>
-        <button type="submit" class="btn botao">Atualizar</button>
+       <a href="{{url_for('temas.tema_update', id=tema.id)}}">
+        <button type="submit" class="btn botao">Atualizar</button></a>
       </div>
 
     </form>

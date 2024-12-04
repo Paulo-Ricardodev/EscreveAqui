@@ -61,7 +61,8 @@ def repertorio_update(id):
 
     db.session.add(repertorio)
     db.session.commit()
-    return 'repertorio atualizado'
+
+    return redirect(url_for("repertorios.meusrepertorios"))
 
 
 
