@@ -31,26 +31,12 @@
             </a>
           </div>
         </div>
-        <div class='d-flex justify-content-around pontuacao margem-media'>
-          <div>
-            <div class="subtitulo2 fw-bold margem-pequena">Pontuação</div>
-            <div class="texto fw-ligth d-flex align-items-center justify-content-center"> <b>Total: </b> {{current_user.pontuacao}}  xp</div>
-          </div>
-          <div class="">
-            <div class="subtitulo2 fw-bold margem-pequena borda-lateral">Temas</div>
-            <div class="texto fw-ligth d-flex align-items-center justify-content-center borda-lateral">{{quant_tema}} posts</div>
-          </div>
-          <div>
-            <div class="subtitulo2 fw-bold margem-pequena">Repertório</div>
-            <div class="texto fw-ligth d-flex align-items-center justify-content-center"> {{quant_repertorio}} posts</div>
-          </div>
-          
-        </div>
+      
       </div>
 
       <div class='d-flex flex-column justify-content-evenly fw-bold'>
-        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center margem-pequena' href="{{url_for('repertorios.meusrepertorios')}}">Meus repertórios</a>
-        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center margem-pequena' href="{{url_for('temas.meustemas')}}">Meus temas</a>
+        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center' href="{{url_for('repertorios.meusrepertorios')}}">Meus repertórios</a>
+        <a class='d-flex minhas_informacoes subtitulo2 align-items-center justify-content-center ' href="{{url_for('temas.meustemas')}}">Meus temas</a>
       </div>
       
     </div>

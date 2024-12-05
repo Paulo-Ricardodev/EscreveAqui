@@ -58,25 +58,17 @@
 .texto-inicio{
   width: 328px;
   text-align: center;
-  font-family: Lato;
-  font-size: 20px;
 }
 
-.postagem{
-  width: 1016px;
-  height: 544px;
-  background-color: var(--Color-blue);
-  border-radius: 55.571px;
+.descricao{
+  font-family: Lato;
+  font-size: 20px;
 }
 
 .margem2{
   margin-top: 40px;
 }
 
-.tema{
-  font-family: Lato;
-  font-size: 28px;
-}
 
 .button{
   border-color: var(--Color-Darkblue);
@@ -112,14 +104,6 @@
   margin-left: 50px;
 }
 
-.comentar{
-  width: 591.431px;
-  height: 42.926px;
-  background-color:var(--Color-blue);
-  border-radius: 38.262px;
-  border: 1px solid var(--Color-Darkblue);
-  padding-left: 20px;
-}
 
 .pessoa{
   width: 299.242px;
@@ -130,4 +114,9 @@
 
 .explorar{
   color: var(--Color-Darkblue);
+}
+
+.text-descricao{
+  color: var(--Color-Darkblue);
+  margin-bottom: 50px;
 }

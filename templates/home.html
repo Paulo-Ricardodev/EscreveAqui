@@ -54,19 +54,19 @@
     <div>
       <div class="d-flex justify-content-center"><img src="{{url_for('static', filename = 'imgs/img-texto.svg')}}" alt=""></div>
       <div class="d-flex justify-content-center margem2 position-top"><div class="bolinha background-azul"></div></div>
-      <div class="texto-inicio d-flex justify-content-center margem2">Aqui você poderá encontrar repertórios de variados tipos para seus temas de redações e compartilhar seus conhecimentos. </div>
+      <div class="texto-inicio descricao d-flex justify-content-center margem2">Aqui você poderá encontrar repertórios de variados tipos para seus temas de redações e compartilhar seus conhecimentos. </div>
     </div>
   
     <div>
       <div class="d-flex justify-content-center"><img src="{{url_for('static', filename = 'imgs/img-folha.svg')}}" alt=""></div>
       <div class="d-flex justify-content-center margem2"><div class="bolinha background-azul"></div></div>
-      <div class="d-flex justify-content-center texto-inicio margem2">Terá a possibilidade de criar pastas com os repertórios que mais irão ajudar você, assim deixando seus estudos mais organizados.</div>
+      <div class="d-flex justify-content-center texto-inicio descricao margem2">Terá a possibilidade de criar pastas com os repertórios que mais irão ajudar você, assim deixando seus estudos mais organizados.</div>
     </div>
   
     <div>
       <div class="d-flex justify-content-center"><img src="{{url_for('static', filename = 'imgs/img-game.svg')}}" alt=""></div>
       <div class="d-flex justify-content-center margem2 position-bottom"><div class="bolinha background-azul"></div></div>
-      <div class="d-flex justify-content-center texto-inicio margem2">Participarará da gamificação que ajudará na motivação e interação entre os usuários.</div>
+      <div class="d-flex justify-content-center texto-inicio descricao margem2">Participarará da gamificação que ajudará na motivação e interação entre os usuários.</div>
   </div> 
   
 </div>
@@ -76,91 +76,25 @@
 </div>
 
 
-<div class="  margem d-flex justify-content-center">
-  <div class=" underline darkblue subtitulo d-flex justify-content-center  fw-semibold">Conheça nossos repertórios mais vistos!</div>
-</div>
 
-<div class="d-flex flex-column align-items-center">
+<div class="margem-grande container flex-column">
+  <div class="d-flex flex-column">
+    <div class="darkblue subtitulo d-flex fw-semibold">Argumentação</div>
+    <div class="descricao margem-pequena">A argumentação é um processo comunicativo que tem o intuito de convencer, persuadir ou influenciar alguém a aceitar um determinado ponto de vista ou ideia. Ela é usada em diversas áreas da nossa vida, não só de modo formal, mas também em nosso cotidiano de modo informal.</div>
+    <div class="descricao margem-pequena">A argumentação, se mal construída, pode acarretar problemas na estrutura de um texto, se tratando de uma redação dissertativa-argumentativa, por exemplo, pois é necessário que haja fatores que demonstram uma construção a fim de persuadir o leitor da melhor maneira</div>
+  </div>
 
-  <div class="margem postagem">
-
-    <div class="darkblue margem2 d-flex justify-content-between">
-      <div class="tema left">Tema: Pobreza no Brasil.</div>
-      <div class="right">
-        <button class="button darkblue btn btn-outline-info">Denunciar</button>
-        <button class="button2 background-azul btn btn-info">Mais repertórios</button>
-      </div>
-    </div>
-
-    <div class="darkblue margem2 d-flex justify-content-between">
-        <div class="texto texto-longo margem2 left">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of thas survived not only five centuries, but also the leap, but also the leap</div>
-      <div class="bloco-azul background-azul margem2 right"></div>
-    </div>
-
-    <div class="margem2 d-flex justify-content-between">
-      <div class="left">
-        <img src="{{url_for('static', filename = 'imgs/curtir.svg')}}" alt="">
-        <img src="{{url_for('static', filename = 'imgs/mensagem repertório.svg')}}"
-          alt="">
-        <input type="text" name="Comentar" class="comentar background-azul" placeholder="Comente...">
-        <button class="button darkblue btn btn-outline-info right">Enviar</button>
-      </div>
-
+  <div class="d-flex flex-column">
+    <div class="darkblue subtitulo d-flex fw-semibold margem-media">Repertório</div>
+    <div class="descricao margem-pequena">O termo repertório é utilizado para se referir a um conjunto de conhecimentos, habilidades ou experiências que um indivíduo possui. Dentro do contexto de argumentação, um repertório refere-se a qualquer tipo de informação que auxilie a fundamentar um argumento, como por exemplo: notícias, poemas, músicas, artigos, etc.</div>
+    <div class="descricao margem-pequena">Sua presença em textos argumentativos é de suma importância, pois sugere que o autor tem domínio sobre o assunto e uma base sólida onde ele construirá o seu argumento, de modo a levar o leitor a concordar com sua tese.  
     </div>
   </div>
-  <div class="margem postagem">
 
-    <div class="darkblue margem2 d-flex justify-content-between">
-      <div class="tema left">Tema: Pobreza no Brasil.</div>
-      <div class="right">
-        <button class="button darkblue btn btn-outline-info">Denunciar</button>
-        <button class="button2 background-azul btn btn-info">Mais repertórios</button>
-      </div>
-    </div>
+  
+  
+  <div class="margem2"><a href="{{url_for('temas.pesquisa')}}" class="darkblue descricao fw-light">Explorar >>></a></div>
 
-    <div class="darkblue margem2 d-flex justify-content-between">
-        <div class="texto texto-longo margem2 left">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of thas survived not only five centuries, but also the leap, but also the leap</div>
-      <div class="bloco-azul margem2 background-azul right"></div>
-    </div>
-
-    <div class="margem2 d-flex justify-content-between">
-      <div class="left">
-        <img src="{{url_for('static', filename = 'imgs/curtir.svg')}}" alt="">
-        <img src="{{url_for('static', filename = 'imgs/mensagem repertório.svg')}}"
-          alt="">
-        <input type="text" name="Comentar" class="comentar background-azul" placeholder="Comente...">
-        <button class="button darkblue btn btn-outline-info right">Enviar</button>
-      </div>
-
-    </div>
-  </div>
-  <div class="margem postagem">
-
-    <div class="darkblue margem2 d-flex justify-content-between">
-      <div class="tema left">Tema: Pobreza no Brasil.</div>
-      <div class="right">
-        <button class="button darkblue btn btn-outline-info">Denunciar</button>
-        <button class="button2 background-azul btn btn-info">Mais repertórios</button>
-      </div>
-    </div>
-
-    <div class="darkblue margem2 d-flex justify-content-between">
-        <div class="texto texto-longo margem2 left">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of thas survived not only five centuries, but also the leap, but also the leap</div>
-      <div class="bloco-azul margem2 background-azul right"></div>
-    </div>
-
-    <div class="margem2 d-flex justify-content-between">
-      <div class="left">
-        <img src="{{url_for('static', filename = 'imgs/curtir.svg')}}" alt="">
-        <img src="{{url_for('static', filename = 'imgs/mensagem repertório.svg')}}"
-          alt="">
-        <input type="text" name="Comentar" class="comentar background-azul" placeholder="Comente...">
-        <button class="button darkblue btn btn-outline-info right">Enviar</button>
-      </div>
-
-    </div>
-  </div>
-  <div class="margem2"><a href="" class="darkblue subtitulo fw-light">Explorar >>></a></div>
 </div>
 
 <div class="margem"></div>
