@@ -7,14 +7,14 @@
 {% endblock %}
 
 <div class="d-flex justify-content-center fw-semibold margem-grande">
-  <div class="subtitulo underline ">Adicionar Repertório</div>
+  <div class="subtitulo underline ">Meus repertórios</div>
 </div>
 
 
 {% for repertorio in repertorios %}
 <div  class="d-flex justify-content-center fw-semibold margem-grande">
-  <div class="repertorio">
-	<div class="titulo_rep margem-media fw-light borda"><b>Repertório:</b> {{ repertorio.titulo }}</div>
+	<div class="repertorio">
+		<div class="titulo_rep margem-media fw-light borda"><b>Repertório:</b> <br> {{ repertorio.titulo }}</div>
 	<div class="d-flex justify-content-center margem-media">
   	<div class="bloco-rep ">
     	<div class="texto fw-light"> <b>Tema:</b> {{ repertorio.temas }}</div>
