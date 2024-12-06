@@ -1,35 +1,48 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-
 {% block links %}
-  <link rel="stylesheet" href="{{url_for('static', filename = 'style/meus_repertorios.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/meus_repertorios.css') }}">
 {% endblock %}
 
 <div class="d-flex justify-content-center fw-semibold margem-grande">
-  <div class="subtitulo underline ">Meus repertórios</div>
+  <div class="subtitulo underline">Meus repertórios</div>
 </div>
 
-
 {% for repertorio in repertorios %}
-<div  class="d-flex justify-content-center fw-semibold margem-grande">
-	<div class="repertorio">
-		<div class="titulo_rep margem-media fw-light borda"><b>Repertório:</b> <br> {{ repertorio.titulo }}</div>
-	<div class="d-flex justify-content-center margem-media">
-  	<div class="bloco-rep ">
-    	<div class="texto fw-light"> <b>Tema:</b> {{ repertorio.temas }}</div>
-   	 
-    	<div class="d-flex texto  justify-content-evenly margem-pequena fw-light">
-			<a href="{{url_for('repertorios.repertorio_update' , id = repertorio.id)}}"> <button class="botao btn btn-info">Editar</button> </a>
-			<a href="{{url_for('repertorios.repertorio_abrir' , id = repertorio.id)}}"> <button class="botao btn btn-info">Ver</button> </a>
-			<a href="{{url_for('repertorios.repertorio_delete' , id = repertorio.id)}}"> <button class="botao btn btn-info">Excluir</button> </a>
-    	</div>
-  	</div>
-	</div>
+<div class="d-flex justify-content-center fw-semibold margem-grande">
+  <div class="repertorio">
+    <div class="titulo_rep margem-media fw-light borda">
+      <b>Repertório:</b> <br> {{ repertorio.titulo }}
+    </div>
+    <div class="d-flex justify-content-center margem-media">
+      <div class="bloco-rep">
+        <div class="texto fw-light">
+          <b>Tema associado:</b>
+          {% if repertorio.temas %}
+            <ul>
+              {% for tema in repertorio.temas %}
+                <li>{{ tema.titulo }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span>Sem tema associado</span>
+          {% endif %}
+        </div>
+        <div class="d-flex texto justify-content-evenly margem-pequena fw-light">
+          <a href="{{ url_for('repertorios.repertorio_update', id=repertorio.id) }}">
+            <button class="botao btn btn-info">Editar</button>
+          </a>
+          <a href="{{ url_for('repertorios.repertorio_abrir', id=repertorio.id) }}">
+            <button class="botao btn btn-info">Ver</button>
+          </a>
+          <a href="{{ url_for('repertorios.repertorio_delete', id=repertorio.id) }}">
+            <button class="botao btn btn-info">Excluir</button>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-
 </div>
 {% endfor %}
 {% endblock %}

@@ -179,10 +179,31 @@ def autenticar():
   
 
 
-@bp_usuarios.route('/nova_senha')
+@bp_usuarios.route('/esquecisenha', methods=['GET', 'POST'])
 def nova_senha():
-  return ''
+  if request.method == 'GET':
+     return render_template('esquecisenha.html')
+  else:
+    
+    email =  request.form.get('email')
+    senha = request.form.get('novasenha')
+    csenha = request.form.get('confirmar_senha')
+    usuario = Usuario.query.filter_by(email=email).first()
 
+    if usuario:
+
+      hashed_senha = bcrypt.generate_password_hash(senha).decode('utf-8')
+      if senha == csenha:
+        usuario.senha = hashed_senha
+        db.session.add(usuario)
+        db.session.commit()
+        
+        return redirect(url_for('usuarios.login'))
+      return "senhas não coincidem"
+    return "usuario não encontrado"
+
+       
+  
 @bp_usuarios.route("/resultado/<int:id>")
 def repertorios_usuario(id):
     quant_repertorio = db.session.query(func.count(Repertorio.id)).\

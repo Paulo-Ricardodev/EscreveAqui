@@ -3,10 +3,18 @@ from models import Repertorio, Tema
 from utils import db
 from flask_login import current_user, login_required
 from datetime import datetime
-from decorators import admin_required
+from functools import wraps
 
 
 bp_repertorios = Blueprint('repertorios', __name__ , template_folder='templates')
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not current_user.is_admin():
+            # Se não for admin, redireciona para uma página de erro ou página inicial
+            return redirect(url_for('repertorios.meusrepertorios'))  # Ou redirecionar para outra página
+        return f(*args, **kwargs)
+    return decorated_function
 
 @bp_repertorios.route('/cadastro/<int:id>', methods = ['GET', 'POST'])
 def repertorio_cadastro(id):

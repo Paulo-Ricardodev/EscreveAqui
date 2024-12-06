@@ -2,12 +2,19 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash
 from models import Tema, Repertorio, Tema_repertorio
 from utils import db
 from flask_login import current_user, login_required
-from decorators import admin_required
+from functools import wraps
 
 bp_temas = Blueprint('temas', __name__ , template_folder='templates')
 
 
-
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not current_user.is_admin():
+            # Se não for admin, redireciona para uma página de erro ou página inicial
+            return redirect(url_for('temas.meustemas'))  # Ou redirecionar para outra página
+        return f(*args, **kwargs)
+    return decorated_function
 
 @bp_temas.route("/cadastro", methods = ['GET', 'POST'])
 def tema_cadastro():
