@@ -3,6 +3,7 @@ from models import Repertorio, Tema
 from utils import db
 from flask_login import current_user, login_required
 from datetime import datetime
+from decorators import admin_required
 
 
 bp_repertorios = Blueprint('repertorios', __name__ , template_folder='templates')
@@ -35,10 +36,12 @@ def repertorio_cadastro(id):
     return redirect(url_for('index')) 
     
 
-@bp_repertorios.route("/recovery")
-def repertorio_recovery():
+@bp_repertorios.route("/gerenciar")
+@login_required  # Garante que o usuário está logado
+@admin_required  # Garante que o usuário tem o papel de admin
+def gerenciar_repertorio():
   repertorio = Repertorio.query.all()
-  return render_template('repertorio_recovery.html', repertorio = repertorio)
+  return render_template('ger_repertorio.html', repertorio = repertorio)
 
 
 @bp_repertorios.route("/update/<int:id>", methods = ['GET', 'POST'])
@@ -52,17 +55,21 @@ def repertorio_update(id):
 
   else:
     titulo = request.form.get('titulo')
+    conteudo = request.form.get('conteudo')
     descricao = request.form.get('descricao')
     referencia = request.form.get('referencia')
 
     repertorio.titulo = titulo
+    repertorio.conteudo = conteudo
     repertorio.descricao = descricao
     repertorio.referencia = referencia
 
     db.session.add(repertorio)
     db.session.commit()
-
-    return redirect(url_for("repertorios.meusrepertorios"))
+    if current_user.is_admin:
+      return redirect(url_for("repertorios.gerenciar_repertorio"))
+    else:
+      return redirect(url_for("repertorios.meusrepertorios"))
 
 
 
@@ -76,8 +83,12 @@ def repertorio_delete(id):
   else:
     db.session.delete(repertorio)
     db.session.commit()
+    
+    if current_user.is_admin:
+      return redirect(url_for("repertorios.gerenciar_repertorio"))
+    else:
+      return redirect(url_for("repertorios.meusrepertorios"))
 
-    return 'dados deletados'
 
 @bp_repertorios.route('/abrir/<int:id>', methods = ['GET', 'POST'])
 def repertorio_abrir(id):
@@ -90,3 +101,4 @@ def repertorio_abrir(id):
 def meusrepertorios():
   repertorio_usuario = Repertorio.query.filter_by(id_usuario=current_user.id).all()
   return render_template('meus_repertorios.html', repertorios=repertorio_usuario)
+

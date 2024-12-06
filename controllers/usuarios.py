@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, session
-from models import Usuario, Repertorio, Tema
+from models import Usuario, Repertorio, Tema, Tema_repertorio
 from utils import db, lm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_bcrypt import Bcrypt
 from sqlalchemy import func
+from decorators import admin_required
 
 
 
@@ -102,37 +103,13 @@ def recovery():
     usuarios = Usuario.query.all()
     return render_template('usuarios_recovery.html', usuarios = usuarios)
 
-@bp_usuarios.route('/gerenciar/<int:id>', methods = ['GET', 'POST'])
-@login_required
-def gerenciar(id):
 
-  if not current_user.admin:
-    flash("Acesso não permitido")
-    return redirect('/login')
-  else:
-  
-    usuario = Usuario.query.get(id)
-    
-    if request.method == 'GET':
-      
-      return render_template("usuarios_update.html", usuario = usuario)
-      
-    if request.method == 'POST':
-      
-      nome = request.form.get('nome')
-      email = request.form.get('email')
-      admin = request.form.get('admin')
-      
-      
-      usuario.nome = nome
-      usuario.email = email
-      usuario.admin = eval(admin)
-      
-      
-      db.session.add(usuario)
-      db.session.commit()
-      return redirect('/usuario/recovery')
-
+@bp_usuarios.route('/gerenciar', methods = ['GET', 'POST'])
+@login_required  # Garante que o usuário está logado
+@admin_required  # Garante que o usuário tem o papel de admin
+def gerenciar_usuario():
+  usuarios = Usuario.query.all()
+  return render_template('ger_user.html', usuarios = usuarios)
 
 
 @bp_usuarios.route('/update/<int:id>', methods = ['GET', 'POST'])
@@ -174,7 +151,12 @@ def delete(id):
     db.session.delete(usuario)
     db.session.commit()
 
-    return 'dados deletados'
+    if current_user.is_admin:
+      return redirect(url_for("usuarios.gerenciar_usuario"))
+    else:
+      return redirect(url_for("usuarios.login"))
+
+
 
 @lm.user_loader
 def load_user(id):
@@ -240,3 +222,38 @@ def editar_perfil():
 def logoff():
     logout_user()  # Usa o Flask-Login para deslogar o usuário
     return redirect(url_for('index'))  # Redireciona para a página inicial
+
+@bp_usuarios.route('/excluir_perfil/<int:id>', methods=['GET', 'POST']) 
+@login_required
+def excluir_perfil(id):
+    # Obter o usuário
+    usuario = Usuario.query.get_or_404(id)
+
+    # Permitir apenas que o próprio usuário ou um administrador exclua
+    if current_user.id != id and not current_user.is_admin:
+        return "Acesso não autorizado", 403
+
+    if request.method == 'GET':
+        return render_template('usuario_delete.html', usuario=usuario)
+    
+    # Excluir registros relacionados
+    repertorios = Repertorio.query.filter_by(id_usuario=id).all()
+    for repertorio in repertorios:
+        Tema_repertorio.query.filter_by(repertorio_id=repertorio.id).delete()
+    
+    
+    Repertorio.query.filter_by(id_usuario=id).delete()
+    Tema.query.filter_by(id_usuario=id).delete()
+    
+    # Excluir o usuário
+    db.session.delete(usuario)
+    db.session.commit()
+
+    # Redirecionar após exclusão
+    if current_user.is_admin:
+        return redirect(url_for("usuarios.gerenciar_usuario"))
+    else:
+        return redirect(url_for("usuarios.login"))
+
+
+  

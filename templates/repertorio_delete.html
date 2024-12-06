@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block conteudo %}
   <h1>Tem certeza que deseja deletar o repertorio {{repertorio.titulo}}?</h1>
-  <form method ='post' action="/repertorio/delete/{{repertorio.id}}">
+  <form method ='post' >
 
     <button type='submit'> Excluir </button>
   </form>

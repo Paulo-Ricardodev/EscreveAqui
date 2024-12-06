@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/ger_user.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+
+<body>
+  <div class="container flex-column">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="tema fw-semibold">
+        <div>Gerenciar usuários</div>
+      </div>
+    </div>
+
+    <div class="fw-semibold titulo d-flex justify-content-between">
+      <div class="d-flex">
+        <div>Nome</div>
+      </div>
+      <div class="edicao d-flex justify-content-between">
+        <div>Email</div>
+        <div>Admin</div>
+        <div>Remover</div>
+      </div>
+    </div>
+    {% for usuario in usuarios %}
+    <div class="linhas-temas d-flex justify-content-between">
+
+      <div class="d-flex">
+        <div>{{usuario.nome}}</div>
+      </div>
+
+
+
+      <div class="edicao d-flex justify-content-between">
+        <div class="d-flex">
+          <div>{{usuario.email}}</div>
+        </div>
+        <div>
+
+
+          {% if usuario.admin %}
+            <div>SIM</div>
+          {% else %}
+            <div>NÃO</div>
+          {% endif %}
+        </div>
+        <div><a href="{{url_for('usuarios.delete', id=usuario.id)}}"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></div>
+      </div>
+      
+    </div>
+    {% endfor %}
+
+  </div>
+
+
+</body>
+{% endblock %}

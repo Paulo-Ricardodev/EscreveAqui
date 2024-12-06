@@ -1,12 +1,68 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-  <ul>
-    {% for r in repertorio %}
-      <li> {{r.titulo}} - {{r.referencia}}. 
-        <a href="/repertorio/update/{{r.id}}"> Editar </a>
-        <a href="/repertorio/delete/{{r.id}}"> Deletar </a>
-        <a href="/repertorio/abrir/{{r.id}}"> Abrir </a>
-      </li>
-    {% endfor %}
-  </ul>
+
+{% block links %}
+  <link rel="stylesheet" href="{{url_for('static', filename = 'style/ger_repertorio.css')}}">
+{% endblock %}
+
+<body>
+  <div class="container flex-column">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="tema fw-semibold">
+        <div>Gerenciar repertório</div>
+      </div>
+    </div>
+
+    <div class="tema-titulo fw-semibold">
+      <div>Tema: Título do tema</div>
+    </div>
+
+    <div class="fw-semibold titulo d-flex justify-content-between">
+      <div class="d-flex">
+        <div>Título</div>
+      </div>
+      <div class="edicao d-flex justify-content-between">
+        <div>Denuncia</div>
+        <div>Editar</div>
+        <div>Remover</div>
+      </div>
+    </div>
+
+    <div class="linhas-temas d-flex justify-content-between">
+      <div class="d-flex">
+        <div>Fome no mundo</div>
+      </div>
+      <div class="edicao d-flex justify-content-between">
+        <div>Não</div>
+        <div><a href="#"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></div>
+        <div><a href="#"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></div>
+      </div>
+    </div>
+
+    <div class="linhas-temas d-flex justify-content-between">
+      <div class="d-flex">
+        <div>Fome no mundo</div>
+      </div>
+      <div class="edicao d-flex justify-content-between">
+        <div>Não</div>
+        <div><a href="#"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></div>
+        <div><a href="#"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></div>
+      </div>
+    </div>
+
+    <div class="linhas-temas d-flex justify-content-between">
+      <div class="d-flex">
+        <div>Fome no mundo</div>
+      </div>
+      <div class="edicao d-flex justify-content-between">
+        <div>Sim</div>
+        <div><a href="#"><img src="{{url_for('static', filename = 'imgs/editar.svg')}}" alt=""></a></div>
+        <div><a href="#"><img src="{{url_for('static', filename = 'imgs/remover.svg')}}" alt=""></a></div>
+      </div>
+    </div>
+    
+  </div>
+
+  
+</body>
 {% endblock %}

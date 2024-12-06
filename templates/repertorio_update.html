@@ -18,14 +18,12 @@
        <div><input type="text" name="titulo" value = '{{repertorio.titulo}}' class="input texto" placeholder="Ex.: Violência doméstica" required></div>
 
        <div class="subtitulo2 margem2">Repertório</div> <br>
-      <textarea name="repertorio" class="input texto descricao" placeholder="Escreva seu repertório aqui caso seja textual" id="" cols="30" rows="10" required></textarea>
+       <div><input type="text"name="conteudo" value = '{{repertorio.conteudo}}' class="input texto descricao" size="1000"  placeholder="Escreva seu repertório aqui caso seja textual" id="" cols="30" rows="10" required></div>
 
-      <div class="subtitulo2 margem2">Imagem</div> <br> 
-      <input type="file" name="upload">
-      <div class="texto fw-light p-2">Caso seu repertório seja uma imagem ou necessite de uma.</div>
-
-      <div class="subtitulo2 margem2">Descrição</div> <br>
-      <textarea name="descricao" class="input texto descricao"  value = '{{repertorio.descricao}}' placeholder="Escreva como usar esse repertório, quand usar, qualquer anotação pertinente acerca do repertório..." id="" cols="30" rows="10" required></textarea>
+      
+       <div class="subtitulo2 margem2">Descrição</div> <br>
+       <div><input type="text" value = '{{repertorio.descricao}}' size="1000" name="descricao" class="input texto descricao"    placeholder="Escreva como usar esse repertório, quando usar, qualquer anotação pertinente acerca do repertório..." id="" cols="30" rows="10" ></div>
+    
 
 
 

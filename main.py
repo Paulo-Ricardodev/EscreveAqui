@@ -54,6 +54,15 @@ def nao_encontrada(e):
     # note that we set the 404 status explicitly
     return render_template('404.html'), 404
 
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not current_user.is_admin():
+            # Se não for admin, redireciona para uma página de erro ou página inicial
+            return redirect(url_for('home'))  # Ou redirecionar para outra página
+        return f(*args, **kwargs)
+    return decorat
+
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=7000)

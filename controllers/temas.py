@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash
 from models import Tema, Repertorio, Tema_repertorio
 from utils import db
 from flask_login import current_user, login_required
+from decorators import admin_required
 
 bp_temas = Blueprint('temas', __name__ , template_folder='templates')
 
@@ -37,10 +38,12 @@ def tema_cadastro():
     
       
 
-@bp_temas.route("/recovery")
-def tema_recovery():
-  tema = Tema.query.all()
-  return render_template('tema_recovery.html', tema = tema)
+@bp_temas.route("/gerenciar", methods = ['GET', 'POST'])
+@login_required  # Garante que o usuário está logado
+@admin_required  # Garante que o usuário tem o papel de admin
+def gerenciar_tema():
+  temas = Tema.query.all()
+  return render_template('ger_temas.html', temas = temas)
 
 
 @bp_temas.route('/pesquisa', methods = ['GET'])
@@ -73,7 +76,10 @@ def tema_update(id):
 
     db.session.add(tema)
     db.session.commit()
-    return redirect(url_for('temas.meustemas'))
+    if current_user.is_admin:
+      return redirect(url_for("temas.gerenciar_tema"))
+    else:
+      return redirect(url_for("temas.meustemas"))
 
 
 @bp_temas.route("/delete/<int:id>", methods = ['GET', 'POST'])
@@ -90,7 +96,11 @@ def tema_delete(id):
     db.session.commit()
 
     flash('Tema deletado com sucesso!', 'success') 
-    return redirect(url_for("temas.meustemas"))
+    if current_user.is_admin:
+      return redirect(url_for("temas.gerenciar_tema"))
+    else:
+      return redirect(url_for("temas.meustemas"))
+
   
 @bp_temas.route("/abrir/<int:id>", methods = ['GET', 'POST'])
 def tema_abrir(id):

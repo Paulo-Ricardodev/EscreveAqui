@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-from models import Colecao, Repertorio
+from models import  Repertorio
 from utils import db
 from flask_login import current_user, login_required
 
